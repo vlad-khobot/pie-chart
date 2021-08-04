@@ -2,41 +2,121 @@
   {
     "name": "Compute A",
     "value": 2400,
-    "fill": "#a304ff"
+    "fill": "#a304ff",
+    "Compute account by Cloud": 6,
+    "Compute account by organization": 2,
+    "VMs by organization": 140,
+    "EBS volumes by organization": 40,
+    "EBS capacity by organization": 80,
+    "Capacity by cloud": 400,
+    "Capacity by organization": 200,
+    "Objects by cloud": 800,
+    "Objects by organization": 800,
+    "Object Storage": 6
   },
   {
     "name": "Compute B",
     "value": 4567,
-    "fill": "#2ce913"
+    "fill": "#2ce913",
+    "Compute account by Cloud": 8,
+    "Compute account by organization": 10,
+    "VMs by organization": 160,
+    "EBS volumes by organization": 0,
+    "EBS capacity by organization": 100,
+    "Capacity by cloud": 600,
+    "Capacity by organization": 300,
+    "Objects by cloud": 1000,
+    "Objects by organization": 1000,
+    "Object Storage": 6
   },
   {
     "name": "Compute C",
     "value": 5000,
-    "fill": "#fbff00"
+    "fill": "#fbff00",
+    "Compute account by Cloud": 12,
+    "Compute account by organization": 40,
+    "VMs by organization": 300,
+    "EBS volumes by organization": 90,
+    "EBS capacity by organization": 100,
+    "Capacity by cloud": 600,
+    "Capacity by organization": 300,
+    "Objects by cloud": 880,
+    "Objects by organization": 980,
+    "Object Storage": 8
   },
   {
     "name": "Compute D",
     "value": 3000,
-    "fill": "#04ffdd"
+    "fill": "#04ffdd",
+    "Compute account by Cloud": 1,
+    "Compute account by organization": 0,
+    "VMs by organization": 0,
+    "EBS volumes by organization": 0,
+    "EBS capacity by organization": 0,
+    "Capacity by cloud": 0,
+    "Capacity by organization": 0,
+    "Objects by cloud": 0,
+    "Objects by organization": 50,
+    "Object Storage": 0
   },
   {
     "name": "Compute E",
     "value": 3908,
-    "fill": "#0447ff"
+    "fill": "#0447ff",
+    "Compute account by Cloud": 3,
+    "Compute account by organization": 0,
+    "VMs by organization": 100,
+    "EBS volumes by organization": 0,
+    "EBS capacity by organization": 0,
+    "Capacity by cloud": 0,
+    "Capacity by organization": 0,
+    "Objects by cloud": 40,
+    "Objects by organization": 30,
+    "Object Storage": 1
   },
   {
     "name": "Compute F",
     "value": 4800,
-    "fill": "#ff0458"
+    "fill": "#ff0458",
+    "Compute account by Cloud": 1,
+    "Compute account by organization": 0,
+    "VMs by organization": 110,
+    "EBS volumes by organization": 0,
+    "EBS capacity by organization": 0,
+    "Capacity by cloud": 0,
+    "Capacity by organization": 0,
+    "Objects by cloud": 0,
+    "Objects by organization": 130,
+    "Object Storage": 2
   },
   {
     "name": "Compute G",
     "value": 4800,
-    "fill": "#ff4d4d"
+    "fill": "#ff4d4d",
+    "Compute account by Cloud": 5,
+    "Compute account by organization": 0,
+    "VMs by organization": 150,
+    "EBS volumes by organization": 0,
+    "EBS capacity by organization": 0,
+    "Capacity by cloud": 0,
+    "Capacity by organization": 500,
+    "Objects by cloud": 0,
+    "Objects by organization": 0,
+    "Object Storage": 4
   },
   {
     "name": "Compute H",
     "value": 4800,
-    "fill": "#097200"
+    "fill": "#097200",
+    "Compute account by Cloud": 2,
+    "Compute account by organization": 1,
+    "VMs by organization": 0,
+    "EBS volumes by organization": 0,
+    "EBS capacity by organization": 0,
+    "Capacity by cloud": 0,
+    "Capacity by organization": 0,
+    "Objects by cloud": 0,
+    "Objects by organization": 0,
+    "Object Storage": 1
   }
 ]

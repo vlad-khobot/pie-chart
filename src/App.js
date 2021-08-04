@@ -1,11 +1,12 @@
 import './App.css';
-import CustomPieChart from './components/pie-chart/pieChart';
+import DashBoard from './components/dash-board/dashBoard';
 
 function App() {
   return (
-    <div className="App">
-      <CustomPieChart/>
-    </div>
+    <>
+      <DashBoard dashboardNumber={1} />
+      <DashBoard dashboardNumber={2} />
+    </>
   );
 }
 
