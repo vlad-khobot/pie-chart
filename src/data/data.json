@@ -1,0 +1,42 @@
+ [
+  {
+    "name": "Compute A",
+    "value": 2400,
+    "fill": "#a304ff"
+  },
+  {
+    "name": "Compute B",
+    "value": 4567,
+    "fill": "#2ce913"
+  },
+  {
+    "name": "Compute C",
+    "value": 5000,
+    "fill": "#fbff00"
+  },
+  {
+    "name": "Compute D",
+    "value": 3000,
+    "fill": "#04ffdd"
+  },
+  {
+    "name": "Compute E",
+    "value": 3908,
+    "fill": "#0447ff"
+  },
+  {
+    "name": "Compute F",
+    "value": 4800,
+    "fill": "#ff0458"
+  },
+  {
+    "name": "Compute G",
+    "value": 4800,
+    "fill": "#ff4d4d"
+  },
+  {
+    "name": "Compute H",
+    "value": 4800,
+    "fill": "#097200"
+  }
+]
