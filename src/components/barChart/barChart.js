@@ -42,24 +42,34 @@ export default function CustomBarChart() {
           flexWrap: 'wrap',
         }}
       />
-      <Bar legendType="circle" dataKey="Updated" stackId={1} fill="#08ad36" />
+      <Bar
+        legendType="circle"
+        dataKey="Updated"
+        stackId={1}
+        fill="#08ad36"
+        background={{ color: '#fff' }}
+        barSize={13}
+      />
       <Bar
         legendType="circle"
         dataKey="Update available"
         stackId={1}
         fill="#1b7b36"
+        barSize={13}
       />
       <Bar
         legendType="circle"
         dataKey="Update required"
         stackId={1}
         fill="#de7800"
+        barSize={13}
       />
       <Bar
         legendType="circle"
         dataKey="Out of support"
         stackId={1}
         fill="#e31c1c"
+        barSize={13}
       />
     </BarChart>
   );
