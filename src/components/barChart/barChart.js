@@ -47,7 +47,7 @@ export default function CustomBarChart() {
         dataKey="Updated"
         stackId={1}
         fill="#08ad36"
-        background={{ color: '#fff' }}
+        background={{ color: '#fff', opacity: '80%' }}
         barSize={13}
       />
       <Bar
