@@ -3,14 +3,15 @@
 }
 .value {
   position: absolute;
-  top: 43%;
-  right: 23%;
-  width: 40px;
+  top: 46%;
+  right: 22%;
+  width: 45px;
   text-align: center;
   color: #dadbde;
   font-weight: 700;
   font-size: 20px;
   font-family: sans-serif;
+  line-height: 14px;
 }
 .list {
   position: absolute;
@@ -18,4 +19,10 @@
   top: 10%;
   height: 130px;
   width: 130px;
+}
+.unit {
+  color: #dadbde;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: sans-serif;
 }

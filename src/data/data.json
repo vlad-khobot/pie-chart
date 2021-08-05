@@ -12,7 +12,11 @@
     "Capacity by organization": 200,
     "Objects by cloud": 800,
     "Objects by organization": 800,
-    "Object Storage": 6
+    "Object Storage": 6,
+    "Updated": 3,
+    "Update available": 0,
+    "Update required": 4,
+    "Out of support": 5
   },
   {
     "name": "Compute B",
@@ -27,7 +31,11 @@
     "Capacity by organization": 300,
     "Objects by cloud": 1000,
     "Objects by organization": 1000,
-    "Object Storage": 6
+    "Object Storage": 6,
+    "Updated": 0,
+    "Update available": 0,
+    "Update required": 4,
+    "Out of support": 5
   },
   {
     "name": "Compute C",
@@ -42,7 +50,11 @@
     "Capacity by organization": 300,
     "Objects by cloud": 880,
     "Objects by organization": 980,
-    "Object Storage": 8
+    "Object Storage": 8,
+    "Updated": 1,
+    "Update available": 1,
+    "Update required": 2,
+    "Out of support": 0
   },
   {
     "name": "Compute D",
@@ -57,7 +69,11 @@
     "Capacity by organization": 0,
     "Objects by cloud": 0,
     "Objects by organization": 50,
-    "Object Storage": 0
+    "Object Storage": 0,
+    "Updated": 3,
+    "Update available": 1,
+    "Update required": 2,
+    "Out of support": 3
   },
   {
     "name": "Compute E",
@@ -72,7 +88,11 @@
     "Capacity by organization": 0,
     "Objects by cloud": 40,
     "Objects by organization": 30,
-    "Object Storage": 1
+    "Object Storage": 1,
+    "Updated": 0,
+    "Update available": 0,
+    "Update required": 0,
+    "Out of support": 0
   },
   {
     "name": "Compute F",
@@ -87,7 +107,11 @@
     "Capacity by organization": 0,
     "Objects by cloud": 0,
     "Objects by organization": 130,
-    "Object Storage": 2
+    "Object Storage": 2,
+    "Updated": 0,
+    "Update available": 0,
+    "Update required": 0,
+    "Out of support": 0
   },
   {
     "name": "Compute G",
@@ -102,7 +126,11 @@
     "Capacity by organization": 500,
     "Objects by cloud": 0,
     "Objects by organization": 0,
-    "Object Storage": 4
+    "Object Storage": 4,
+    "Updated": 0,
+    "Update available": 0,
+    "Update required": 0,
+    "Out of support": 0
   },
   {
     "name": "Compute H",
@@ -117,6 +145,10 @@
     "Capacity by organization": 0,
     "Objects by cloud": 0,
     "Objects by organization": 0,
-    "Object Storage": 1
+    "Object Storage": 1,
+    "Updated": 0,
+    "Update available": 0,
+    "Update required": 0,
+    "Out of support": 0
   }
 ]

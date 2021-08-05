@@ -1,0 +1,24 @@
+.dashBoard-enter {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.dashBoard-enter-active {
+  opacity: 1;
+  transition: all 200ms;
+  transform: translateY(0);
+}
+.dashBoard-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.dashBoard-exit-active {
+  opacity: 0;
+  transition: all 200ms;
+  transform: translateY(-100%);
+}
+
+.body {
+  overflow: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
