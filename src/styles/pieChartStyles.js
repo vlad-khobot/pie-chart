@@ -27,5 +27,6 @@ export const pieChartStyles = {
     fontSize: 9,
     lineHeight: 2,
     color: '#e4e9eb',
+    marginLeft: 4,
   },
 };
