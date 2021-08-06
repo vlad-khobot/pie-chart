@@ -4,7 +4,7 @@ import { PieChart, Pie, Tooltip } from 'recharts';
 import data from '../../data/data.json';
 import { getMaxValue, getVisibleUsers } from '../../helpers/funtions';
 import { pieChartStyles } from '../../styles/pieChartStyles';
-import CustomBarChart from '../barChart/barChart';
+import CustomBarChart from '../barChart/BarChart';
 import s from './pieChart.module.css';
 
 const useStyles = makeStyles(() => pieChartStyles);
@@ -18,21 +18,23 @@ export default function CustomPieChart({ field }) {
     <div className={s.main}>
       {field !== 'Object Storage' && (
         <div className={s.list}>
-          <div className={classes.scrollBar}>
-            <List className={classes.root}>
-              {visibleUsers.map(({ user, fill }) => (
-                <ListItem className={classes.listItem} key={user}>
-                  <FiberManualRecordIcon style={{ color: fill }} />
-                  <Typography className={classes.text}>{user}</Typography>
-                </ListItem>
-              ))}
-            </List>
-          </div>
+          <List className={classes.root}>
+            {visibleUsers.map(({ user, fill }) => (
+              <ListItem className={classes.listItem} key={user}>
+                <FiberManualRecordIcon style={{ color: fill, fontSize: 10 }} />
+                <Typography className={classes.text}>{user}</Typography>
+              </ListItem>
+            ))}
+          </List>
         </div>
       )}
 
       {field !== 'Object Storage' && (
-        <PieChart width={300} height={180}>
+        <PieChart
+          width={280}
+          height={130}
+          margin={{ top: 4, left: 25, bottom: 4, right: 25 }}
+        >
           <Pie
             data={data}
             dataKey={field}
@@ -40,8 +42,8 @@ export default function CustomPieChart({ field }) {
             fill="fill"
             cx="75%"
             cy="50%"
-            innerRadius={40}
-            outerRadius={66}
+            innerRadius={30}
+            outerRadius={50}
           />
           <Tooltip wrapperStyle={{ zIndex: 1000 }} />
         </PieChart>

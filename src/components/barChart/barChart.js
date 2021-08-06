@@ -15,32 +15,47 @@ export default function CustomBarChart() {
     getUsersSupportStatisticWithoutFill(data);
   return (
     <BarChart
-      width={300}
-      height={180}
+      width={280}
+      height={130}
       data={usersSupportStatisticWithoutFill}
       margin={{
         top: 10,
-        right: 5,
-        left: 10,
+        right: 40,
+        left: 5,
         bottom: 5,
       }}
       layout="vertical"
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis type="number" />
-      <YAxis dataKey="name" type="category" width={75} />
+      <XAxis
+        type="number"
+        tick={{ fontSize: 6, fontFamily: 'sans-serif' }}
+        tickLine={false}
+      />
+      <YAxis
+        dataKey="name"
+        type="category"
+        width={60}
+        tick={{
+          fontSize: 9,
+          fontFamily: 'sans-serif',
+          fill: '#e4e9eb',
+          width: 70,
+        }}
+        tickLine={false}
+      />
       <Tooltip />
       <Legend
         align="center"
         wrapperStyle={{
-          width: '300px',
-          height: '40px',
-          display: 'flex',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
+          fontFamily: 'sans-serif',
+          fontSize: 9,
+          margin: 0,
+          bottom: 10,
+          right: 40,
+          width: 170,
         }}
+        iconSize={6}
       />
       <Bar
         legendType="circle"
@@ -48,28 +63,28 @@ export default function CustomBarChart() {
         stackId={1}
         fill="#08ad36"
         background={{ color: '#fff', opacity: '80%' }}
-        barSize={13}
+        barSize={10}
       />
       <Bar
         legendType="circle"
         dataKey="Update available"
         stackId={1}
         fill="#1b7b36"
-        barSize={13}
+        barSize={10}
       />
       <Bar
         legendType="circle"
         dataKey="Update required"
         stackId={1}
         fill="#de7800"
-        barSize={13}
+        barSize={10}
       />
       <Bar
         legendType="circle"
         dataKey="Out of support"
         stackId={1}
         fill="#e31c1c"
-        barSize={13}
+        barSize={10}
       />
     </BarChart>
   );

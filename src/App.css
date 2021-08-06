@@ -1,3 +1,27 @@
 .main {
   color: #fbff00;
 }
+.recharts-default-legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 27px;
+  flex-wrap: wrap;
+  width: 250px;
+  margin-right: 0;
+}
+.recharts-default-legend {
+  width: 170px;
+}
+.recharts-pie {
+  width: 100px;
+  height: 100px;
+}
+.recharts-legend-item-text {
+  line-height: 1.5;
+  color: #e4e9eb;
+}
+.recharts-cartesian-axis-ticks {
+  height: 10px;
+}
