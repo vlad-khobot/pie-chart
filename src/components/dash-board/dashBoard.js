@@ -10,12 +10,12 @@ import DashBoardWrapper from './DashBoardWrapper';
 const useStyles = makeStyles(() => ({
   arrow: {
     position: 'absolute',
-    top: '4px',
+    top: '6px',
     right: '10px',
     fontSize: '30px',
     background: 'gray',
-    width: '30px',
-    height: '30px',
+    width: '16px',
+    height: '16px',
   },
   dashboard: {
     position: 'relative',
