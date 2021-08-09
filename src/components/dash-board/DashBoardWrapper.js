@@ -1,4 +1,4 @@
-import { Box, Grid, makeStyles, Paper } from '@material-ui/core';
+import { Box, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import CustomPieChart from '../pie-chart/PieChart';
 
@@ -6,8 +6,11 @@ const useStyles = makeStyles(() => ({
   bgBody: {
     background: '#202938',
   },
-  bgHeader: {
+  openHeader: {
     background: '#363e4c',
+  },
+  hideHeader: {
+    background: '#202938',
   },
   text: {
     color: '#e4e9eb',
@@ -20,7 +23,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function DashBoardWrapper({ dashboard, titles }) {
+export default function DashBoardWrapper({ dashboard, titles, showBar }) {
   const classes = useStyles();
   return (
     <Grid
@@ -32,20 +35,24 @@ export default function DashBoardWrapper({ dashboard, titles }) {
       {titles.map(title => (
         <Grid key={title} item>
           {dashboard === 'header' && (
-            <Paper className={classes.bgHeader} square>
-              <Box className={classes.text} p="10px">
-                {title}
-              </Box>
-            </Paper>
+            <Box
+              className={showBar ? classes.openHeader : classes.hideHeader}
+              p="10px"
+            >
+              <Typography className={classes.text}>{title}</Typography>
+            </Box>
           )}
-          {dashboard === 'body' &&
-            (title === '' ? (
-              <></>
-            ) : (
+          {
+            dashboard === 'body' && (
+              // (title === '' ? (
+              //   <></>
+              // ) : (
               <Paper className={classes.bgBody} square>
                 <CustomPieChart field={title} />
               </Paper>
-            ))}
+            )
+            // ))
+          }
         </Grid>
       ))}
     </Grid>

@@ -20,12 +20,16 @@ const useStyles = makeStyles(() => ({
   dashboard: {
     position: 'relative',
     width: 1400,
+    backgroundColor: '#202938',
   },
   arrowIcon: {
     fontSize: '30px',
   },
-  dashboardHeader: {
-    zIndex: 1000,
+  openHeader: {
+    background: '#363e4c',
+  },
+  hideHeader: {
+    background: '#202938',
   },
 }));
 
@@ -51,11 +55,13 @@ export default function DashBoard({ dashboard, user }) {
             )}
           </IconButton>
           <DashBoardWrapper
-            className={classes.dashboardHeader}
+            showBar={showBar}
             titles={
-              user === 'user'
-                ? dashBoardTitles.user[dashboard]
-                : dashBoardTitles.master[dashboard]
+              showBar
+                ? user === 'user'
+                  ? dashBoardTitles.user[dashboard]
+                  : dashBoardTitles.master[dashboard]
+                : ['View Dashboard']
             }
             dashboard="header"
           />
