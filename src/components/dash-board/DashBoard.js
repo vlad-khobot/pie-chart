@@ -19,7 +19,6 @@ const useStyles = makeStyles(() => ({
   },
   dashboard: {
     position: 'relative',
-    overflow: 'hidden',
     width: 1400,
   },
   arrowIcon: {

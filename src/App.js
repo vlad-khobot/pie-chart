@@ -11,7 +11,9 @@ function App() {
       {dashboards.map(dashboard => (
         <Box m={1} key={dashboard}>
           <h3>{dashboard}</h3>
+          <p>Master org</p>
           <DashBoard dashboard={dashboard} user={'master'} />
+          <p>All users</p>
           <DashBoard dashboard={dashboard} user={'user'} />
         </Box>
       ))}
