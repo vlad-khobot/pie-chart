@@ -1,0 +1,31 @@
+.main {
+  position: relative;
+  width: 280px;
+}
+.value {
+  position: absolute;
+  top: 43%;
+  right: 21.5%;
+  width: 45px;
+  text-align: center;
+  color: #e4e9eb;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: sans-serif;
+  line-height: 14px;
+}
+.list {
+  height: 100px;
+  width: 100px;
+  margin: 0;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  bottom: 15px;
+}
+.unit {
+  color: #e4e9eb;
+  font-weight: normal;
+  font-size: 12px;
+  font-family: sans-serif;
+}
