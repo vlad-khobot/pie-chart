@@ -16,7 +16,11 @@
     "Updated": 3,
     "Update available": 0,
     "Update required": 4,
-    "Out of support": 5
+    "Out of support": 5,
+    "Capacity by account": 500,
+    "Objects by accounts": 800,
+    "VPSAs by organization": 0,
+    "Capacity by VPSA":200
   },
   {
     "name": "Compute B",
@@ -35,7 +39,11 @@
     "Updated": 0,
     "Update available": 0,
     "Update required": 4,
-    "Out of support": 5
+    "Out of support": 5,
+    "Capacity by account": 400,
+    "Objects by accounts": 700,
+    "VPSAs by organization": 0,
+    "Capacity by VPSA":150
   },
   {
     "name": "Compute C",
@@ -54,7 +62,11 @@
     "Updated": 1,
     "Update available": 1,
     "Update required": 2,
-    "Out of support": 0
+    "Out of support": 0,
+    "Capacity by account": 300,
+    "Objects by accounts": 1100,
+    "VPSAs by organization": 0,
+    "Capacity by VPSA":120
   },
   {
     "name": "Compute D",
@@ -73,7 +85,11 @@
     "Updated": 3,
     "Update available": 1,
     "Update required": 2,
-    "Out of support": 3
+    "Out of support": 3,
+    "Capacity by account": 0,
+    "Objects by accounts": 0,
+    "VPSAs by organization": 10,
+    "Capacity by VPSA":140
   },
   {
     "name": "Compute E",
@@ -92,7 +108,11 @@
     "Updated": 0,
     "Update available": 0,
     "Update required": 0,
-    "Out of support": 0
+    "Out of support": 0,
+    "Capacity by account": 0,
+    "Objects by accounts": 0,
+    "VPSAs by organization": 20,
+    "Capacity by VPSA":0
   },
   {
     "name": "Compute F",
@@ -111,7 +131,11 @@
     "Updated": 0,
     "Update available": 0,
     "Update required": 0,
-    "Out of support": 0
+    "Out of support": 0,
+    "Capacity by account": 0,
+    "Objects by accounts": 0,
+    "VPSAs by organization": 30,
+    "Capacity by VPSA":0
   },
   {
     "name": "Compute G",
@@ -130,7 +154,11 @@
     "Updated": 0,
     "Update available": 0,
     "Update required": 0,
-    "Out of support": 0
+    "Out of support": 0,
+    "Capacity by account": 0,
+    "Objects by accounts": 0,
+    "VPSAs by organization": 0,
+    "Capacity by VPSA":0
   },
   {
     "name": "Compute H",
@@ -149,6 +177,10 @@
     "Updated": 0,
     "Update available": 0,
     "Update required": 0,
-    "Out of support": 0
+    "Out of support": 0,
+    "Capacity by account": 0,
+    "Objects by accounts": 0,
+    "VPSAs by organization": 0,
+    "Capacity by VPSA":0
   }
 ]

@@ -1,4 +1,14 @@
 {
-    "firstDashboard": ["Compute account by Cloud","Compute account by organization","VMs by organization","EBS volumes by organization","EBS capacity by organization"],
-    "secondDashboard": ["Capacity by cloud","Capacity by organization","Objects by cloud","Objects by organization","Object Storage"]
+    "master": {
+        "Compute Account": ["Compute account by Cloud","Compute account by organization","VMs by organization","EBS volumes by organization","EBS capacity by organization"],
+        "Object storage account": ["Capacity by cloud","Capacity by organization","Objects by cloud","Objects by organization",""],
+        "Private object storaget": ["Capacity by cloud","Capacity by organization","Objects by cloud","Objects by organization","Object Storage"],
+        "Block and File Storage":["Capacity by cloud","Capacity by organization","Capacity utilization","VPSAs by organization","VPSA images by organization"]
+    },
+    "user": {
+        "Compute Account": ["Compute account by Cloud","Compute account by organization","VMs by organization","EBS volumes by organization","EBS capacity by organization"],
+        "Object storage account": ["Capacity by cloud","Capacity by organization","Objects by cloud","Objects by organization",""],
+        "Private object storaget": ["Capacity by cloud","Capacity by account","Objects by cloud","Objects by accounts","VPSA images"],
+        "Block and File Storage":["Capacity by cloud","Capacity by VPSA","Capacity utilization","VPSA images",""]
+    }
 }

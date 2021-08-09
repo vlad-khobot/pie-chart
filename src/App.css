@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  height: 27px;
+  height: 30px;
   flex-wrap: wrap;
   width: 250px;
   margin-right: 0;
@@ -22,6 +22,9 @@
   line-height: 1.5;
   color: #e4e9eb;
 }
-.recharts-cartesian-axis-ticks {
+.recharts-text {
   height: 10px;
+}
+.recharts-legend-item-text {
+  color: #e4e9eb;
 }

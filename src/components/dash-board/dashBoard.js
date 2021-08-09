@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function DashBoard({ dashboardNumber }) {
+export default function DashBoard({ dashboard, user }) {
   const classes = useStyles();
   const [showBar, setShowBar] = useState(true);
   const handleShowBar = () => {
@@ -54,9 +54,9 @@ export default function DashBoard({ dashboardNumber }) {
           <DashBoardWrapper
             className={classes.dashboardHeader}
             titles={
-              dashboardNumber === 1
-                ? dashBoardTitles.firstDashboard
-                : dashBoardTitles.secondDashboard
+              user === 'user'
+                ? dashBoardTitles.user[dashboard]
+                : dashBoardTitles.master[dashboard]
             }
             dashboard="header"
           />
@@ -70,9 +70,9 @@ export default function DashBoard({ dashboardNumber }) {
           >
             <DashBoardWrapper
               titles={
-                dashboardNumber === 1
-                  ? dashBoardTitles.firstDashboard
-                  : dashBoardTitles.secondDashboard
+                user === 'user'
+                  ? dashBoardTitles.user[dashboard]
+                  : dashBoardTitles.master[dashboard]
               }
               dashboard="body"
             />

@@ -14,6 +14,9 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'sans-serif',
     fontWeight: 'bold',
     fontSize: '14px',
+    minWidth: 260,
+    width: '100%',
+    height: 14,
   },
 }));
 
@@ -23,11 +26,11 @@ export default function DashBoardWrapper({ dashboard, titles }) {
     <Grid
       container
       direction="row"
-      justifyContent="space-between"
+      justifyContent="flex-start"
       alignItems="center"
     >
       {titles.map(title => (
-        <Grid key={title} item xs>
+        <Grid key={title} item>
           {dashboard === 'header' && (
             <Paper className={classes.bgHeader} square>
               <Box className={classes.text} p="10px">
@@ -35,11 +38,14 @@ export default function DashBoardWrapper({ dashboard, titles }) {
               </Box>
             </Paper>
           )}
-          {dashboard === 'body' && (
-            <Paper className={classes.bgBody} square>
-              <CustomPieChart field={title} />
-            </Paper>
-          )}
+          {dashboard === 'body' &&
+            (title === '' ? (
+              <></>
+            ) : (
+              <Paper className={classes.bgBody} square>
+                <CustomPieChart field={title} />
+              </Paper>
+            ))}
         </Grid>
       ))}
     </Grid>

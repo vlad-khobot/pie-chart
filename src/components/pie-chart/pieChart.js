@@ -13,10 +13,28 @@ export default function CustomPieChart({ field }) {
   const maxValue = getMaxValue(data, field);
   const visibleUsers = getVisibleUsers(data, field);
   const classes = useStyles();
+  const pirCharts = [
+    'Compute account by Cloud',
+    'Compute account by organization',
+    'VMs by organization',
+    'EBS volumes by organization',
+    'EBS capacity by organization',
+    'Capacity by cloud',
+    'Capacity by organization',
+    'Objects by cloud',
+    'Objects by organization',
+    'Capacity by cloud',
+    'Capacity by account',
+    'Objects by cloud',
+    'Objects by accounts',
+    'VPSA images',
+    'Capacity by VPSA',
+    'VPSAs by organization',
+  ];
 
   return (
     <div className={s.main}>
-      {field !== 'Object Storage' && (
+      {pirCharts.includes(field) && (
         <div className={s.list}>
           <List className={classes.root}>
             {visibleUsers.map(({ user, fill }) => (
@@ -28,8 +46,7 @@ export default function CustomPieChart({ field }) {
           </List>
         </div>
       )}
-
-      {field !== 'Object Storage' && (
+      {pirCharts.includes(field) && (
         <PieChart
           width={280}
           height={130}
@@ -48,10 +65,9 @@ export default function CustomPieChart({ field }) {
           <Tooltip wrapperStyle={{ zIndex: 1000 }} />
         </PieChart>
       )}
-
       {field === 'Object Storage' && <CustomBarChart />}
-
-      {field !== 'Object Storage' && (
+      {field === 'VPSA images by organization' && <CustomBarChart />}
+      {pirCharts.includes(field) && (
         <span className={s.value}>
           {maxValue}
           <br />
