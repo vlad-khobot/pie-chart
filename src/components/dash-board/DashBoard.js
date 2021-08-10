@@ -1,4 +1,4 @@
-import { Box, IconButton, makeStyles, Paper } from '@material-ui/core';
+import { Box, IconButton, makeStyles } from '@material-ui/core';
 import KeyboardArrowUpSharpIcon from '@material-ui/icons/KeyboardArrowUpSharp';
 import KeyboardArrowDownSharpIcon from '@material-ui/icons/KeyboardArrowDownSharp';
 import dashBoardTitles from '../../data/dashBoardTitle.json';
@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
   },
   dashboard: {
     position: 'relative',
-    width: 1400,
+
     backgroundColor: '#202938',
   },
   arrowIcon: {
@@ -41,31 +41,30 @@ export default function DashBoard({ dashboard, user }) {
   };
   return (
     <>
-      <Box m={1} width={1400}>
-        <Paper square className={classes.dashboard} elevation={10}>
-          <IconButton
-            className={classes.arrow}
-            aria-label="hide-show"
-            onClick={handleShowBar}
-          >
-            {showBar ? (
-              <KeyboardArrowUpSharpIcon className={classes.arrowIcon} />
-            ) : (
-              <KeyboardArrowDownSharpIcon className={classes.arrowIcon} />
-            )}
-          </IconButton>
-          <DashBoardWrapper
-            showBar={showBar}
-            titles={
-              showBar
-                ? user === 'user'
-                  ? dashBoardTitles.user[dashboard]
-                  : dashBoardTitles.master[dashboard]
-                : ['View Dashboard']
-            }
-            dashboard="header"
-          />
-        </Paper>
+      <Box m={1} width={1400} className={classes.dashboard} borderRadius={10}>
+        <IconButton
+          className={classes.arrow}
+          aria-label="hide-show"
+          onClick={handleShowBar}
+        >
+          {showBar ? (
+            <KeyboardArrowUpSharpIcon className={classes.arrowIcon} />
+          ) : (
+            <KeyboardArrowDownSharpIcon className={classes.arrowIcon} />
+          )}
+        </IconButton>
+        <DashBoardWrapper
+          showBar={showBar}
+          titles={
+            showBar
+              ? user === 'user'
+                ? dashBoardTitles.user[dashboard]
+                : dashBoardTitles.master[dashboard]
+              : ['View Dashboard']
+          }
+          dashboard="header"
+        />
+
         <div className="body">
           <CSSTransition
             unmountOnExit

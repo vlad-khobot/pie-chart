@@ -1,4 +1,4 @@
-import { Box, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import CustomPieChart from '../pie-chart/PieChart';
 
@@ -21,6 +21,11 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     height: 14,
   },
+  plholder: {
+    width: 280,
+    height: 130,
+    background: '#202938',
+  },
 }));
 
 export default function DashBoardWrapper({ dashboard, titles, showBar }) {
@@ -37,22 +42,13 @@ export default function DashBoardWrapper({ dashboard, titles, showBar }) {
           {dashboard === 'header' && (
             <Box
               className={showBar ? classes.openHeader : classes.hideHeader}
+              borderRadius={showBar ? false : 10}
               p="10px"
             >
               <Typography className={classes.text}>{title}</Typography>
             </Box>
           )}
-          {
-            dashboard === 'body' && (
-              // (title === '' ? (
-              //   <></>
-              // ) : (
-              <Paper className={classes.bgBody} square>
-                <CustomPieChart field={title} />
-              </Paper>
-            )
-            // ))
-          }
+          {dashboard === 'body' && <CustomPieChart field={title} />}
         </Grid>
       ))}
     </Grid>

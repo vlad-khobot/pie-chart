@@ -6,7 +6,7 @@
     "Compute account by Cloud": 6,
     "Compute account by organization": 2,
     "VMs by organization": 140,
-    "EBS volumes by organization": 40,
+    "EBS volumes by organization": 440,
     "EBS capacity by organization": 80,
     "Capacity by cloud": 400,
     "Capacity by organization": 200,

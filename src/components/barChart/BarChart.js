@@ -9,10 +9,93 @@ import {
 } from 'recharts';
 import { getUsersSupportStatisticWithoutFill } from '../../helpers/funtions';
 import data from '../../data/data.json';
+import s from './barChart.module.css';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import { useState } from 'react';
 
 export default function CustomBarChart() {
+  const [update, setUpdate] = useState('Updated');
+  const [updateAvailable, setUpdateAvailable] = useState('Update available');
+  const [updateRequired, setUpdateRequired] = useState('Update required');
+  const [outOfSupport, setOutOfSupport] = useState('Out of support');
   const usersSupportStatisticWithoutFill =
     getUsersSupportStatisticWithoutFill(data);
+  const handleToggleStats = field => {
+    switch (field) {
+      case 'Updated':
+        update === 'Updated' ? setUpdate(null) : setUpdate('Updated');
+        break;
+      case 'Update available':
+        updateAvailable === 'Update available'
+          ? setUpdateAvailable(null)
+          : setUpdateAvailable('Update available');
+        break;
+      case 'Update required':
+        updateRequired === 'Update required'
+          ? setUpdateRequired(null)
+          : setUpdateRequired('Update required');
+        break;
+      case 'Out of support':
+        outOfSupport === 'Out of support'
+          ? setOutOfSupport(null)
+          : setOutOfSupport('Out of support');
+        break;
+
+      default:
+        return field;
+    }
+  };
+  const renderLegend = () => {
+    return (
+      <ul className={s.list}>
+        <li
+          className={s.item}
+          onClick={() => {
+            handleToggleStats('Updated');
+          }}
+        >
+          <FiberManualRecordIcon
+            style={{ color: '#08ad36', fontSize: 10, marginRight: 3 }}
+          />
+          {'Update'}
+        </li>
+        <li
+          className={s.item}
+          onClick={() => {
+            handleToggleStats('Update available');
+          }}
+        >
+          <FiberManualRecordIcon
+            style={{ color: '#1b7b36', fontSize: 10, marginRight: 3 }}
+          />
+          {'Update available'}
+        </li>
+        <li
+          className={s.item}
+          onClick={() => {
+            handleToggleStats('Update required');
+          }}
+        >
+          <FiberManualRecordIcon
+            style={{ color: '#de7800', fontSize: 10, marginRight: 3 }}
+          />
+          {'Update required'}
+        </li>
+        <li
+          className={s.item}
+          onClick={() => {
+            handleToggleStats('Out of support');
+          }}
+        >
+          <FiberManualRecordIcon
+            style={{ color: '#e31c1c', fontSize: 10, marginRight: 3 }}
+          />
+          {'Out of support'}
+        </li>
+      </ul>
+    );
+  };
+
   return (
     <BarChart
       width={280}
@@ -26,7 +109,6 @@ export default function CustomBarChart() {
       }}
       layout="vertical"
       barCategoryGap={2}
-      // barSize={12}
     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis
@@ -50,38 +132,41 @@ export default function CustomBarChart() {
       />
       <Tooltip filterNull />
       <Legend
-        align="center"
+        align="left"
         wrapperStyle={{
-          fontFamily: 'sans-serif',
-          fontSize: 9,
+          height: 30,
+          width: 170,
           bottom: 10,
           right: 40,
-          width: 170,
         }}
         iconSize={6}
+        onClick={() => {
+          console.log();
+        }}
+        content={renderLegend}
       />
       <Bar
         legendType="circle"
-        dataKey="Updated"
+        dataKey={update}
         stackId={1}
         fill="#08ad36"
         background={{ color: '#fff', opacity: '80%' }}
       />
       <Bar
         legendType="circle"
-        dataKey="Update available"
+        dataKey={updateAvailable}
         stackId={1}
         fill="#1b7b36"
       />
       <Bar
         legendType="circle"
-        dataKey="Update required"
+        dataKey={updateRequired}
         stackId={1}
         fill="#de7800"
       />
       <Bar
         legendType="circle"
-        dataKey="Out of support"
+        dataKey={outOfSupport}
         stackId={1}
         fill="#e31c1c"
       />

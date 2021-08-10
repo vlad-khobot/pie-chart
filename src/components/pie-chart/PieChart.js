@@ -9,6 +9,7 @@ import {
 } from '../../helpers/funtions';
 import { pieChartStyles } from '../../styles/pieChartStyles';
 import CustomBarChart from '../barChart/BarChart';
+import LoadingBarChart from '../barChart/LoadingBarChart';
 import s from './pieChart.module.css';
 
 const useStyles = makeStyles(() => pieChartStyles);
@@ -106,6 +107,7 @@ export default function CustomPieChart({ field }) {
           <span className={s.value}>{VPSAdata[0].total}</span>
         </>
       )}
+      {field === 'Capacity utilization' && <LoadingBarChart />}
       {field === 'Object Storage' && <CustomBarChart />}
       {field === 'VPSA images by organization' && <CustomBarChart />}
       {pirCharts.includes(field) && (
