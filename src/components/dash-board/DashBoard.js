@@ -19,8 +19,6 @@ const useStyles = makeStyles(() => ({
   },
   dashboard: {
     position: 'relative',
-
-    backgroundColor: '#202938',
   },
   arrowIcon: {
     fontSize: '30px',
@@ -65,13 +63,13 @@ export default function DashBoard({ dashboard, user }) {
           dashboard="header"
         />
 
-        <div className="body">
-          <CSSTransition
-            unmountOnExit
-            in={showBar}
-            timeout={200}
-            classNames="dashBoard"
-          >
+        <CSSTransition
+          unmountOnExit
+          in={showBar}
+          timeout={200}
+          classNames="dashBoard"
+        >
+          <div className={'body'}>
             <DashBoardWrapper
               titles={
                 user === 'user'
@@ -80,8 +78,8 @@ export default function DashBoard({ dashboard, user }) {
               }
               dashboard="body"
             />
-          </CSSTransition>
-        </div>
+          </div>
+        </CSSTransition>
       </Box>
     </>
   );

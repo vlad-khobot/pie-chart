@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
   },
   hideHeader: {
     background: '#202938',
+    width: 1380,
   },
   text: {
     color: '#e4e9eb',
@@ -48,7 +49,14 @@ export default function DashBoardWrapper({ dashboard, titles, showBar }) {
               <Typography className={classes.text}>{title}</Typography>
             </Box>
           )}
-          {dashboard === 'body' && <CustomPieChart field={title} />}
+          {dashboard === 'body' &&
+            (title === '' ? (
+              <Box className={classes.plholder}></Box>
+            ) : (
+              <Box className={classes.plholder}>
+                <CustomPieChart field={title} />
+              </Box>
+            ))}
         </Grid>
       ))}
     </Grid>

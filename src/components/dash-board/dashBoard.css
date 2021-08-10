@@ -1,23 +1,25 @@
 .dashBoard-enter {
-  transform: translateY(-100%);
+  /* transform: translateY(-100%); */
   opacity: 0;
 }
 .dashBoard-enter-active {
   opacity: 1;
   transition: all 200ms;
-  transform: translateY(0);
+  /* transform: translateY(0); */
 }
 .dashBoard-exit {
   opacity: 1;
-  transform: translateY(0);
+  /* transform: translateY(0); */
 }
 .dashBoard-exit-active {
   opacity: 0;
   transition: all 200ms;
-  transform: translateY(-100%);
+  /* transform: translateY(-100%); */
 }
 
 /* .body {
-  overflow: hidden; 
+  overflow: hidden;
   background-color: #202938;
+  width: 1400px;
+  height: 160px;
 } */
