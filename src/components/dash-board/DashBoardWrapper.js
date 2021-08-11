@@ -1,6 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
-import CustomPieChart from '../pie-chart/PieChart';
+import RenderCharts from '../render-charts/RenderCharts';
 
 const useStyles = makeStyles(() => ({
   bgBody: {
@@ -58,7 +58,7 @@ export default function DashBoardWrapper({ dashboard, titles, showBar }) {
               <Box className={classes.plholder}></Box>
             ) : (
               <Box className={classes.plholder}>
-                <CustomPieChart field={title} />
+                <RenderCharts field={title} />
               </Box>
             ))}
         </Grid>

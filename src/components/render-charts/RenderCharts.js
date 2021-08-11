@@ -2,9 +2,9 @@ import data from '../../data/data.json';
 import { getMaxValue } from '../../helpers/funtions';
 import CustomBarChart from '../barChart/BarChart';
 import LoadingBarChart from '../barChart/LoadingBarChart';
-import s from './pieChart.module.css';
-import ImagesPieChart from './ImagesPieChart';
-import MainPieChart from './MainPieChart';
+import s from '../pie-chart/pieChart.module.css';
+import ImagesPieChart from '../pie-chart/ImagesPieChart';
+import MainPieChart from '../pie-chart/MainPieChart';
 
 const pirCharts = [
   'Compute account by Cloud',
@@ -24,7 +24,7 @@ const pirCharts = [
   'VPSAs by organization',
 ];
 
-export default function CustomPieChart({ field }) {
+export default function RenderCharts({ field }) {
   const maxValue = getMaxValue(data, field);
 
   return (
