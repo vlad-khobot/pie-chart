@@ -19,6 +19,7 @@ const useStyles = makeStyles(() => ({
   },
   dashboard: {
     position: 'relative',
+    borderRadius: 10,
   },
   arrowIcon: {
     fontSize: '30px',
@@ -39,7 +40,7 @@ export default function DashBoard({ dashboard, user }) {
   };
   return (
     <>
-      <Box m={1} width={1400} className={classes.dashboard} borderRadius={10}>
+      <Box m={1} width={1400} className={classes.dashboard}>
         <IconButton
           className={classes.arrow}
           aria-label="hide-show"

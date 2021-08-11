@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
   hideHeader: {
     background: '#202938',
     width: 1380,
+    borderRadius: 10,
   },
   text: {
     color: '#e4e9eb',
@@ -43,7 +44,6 @@ export default function DashBoardWrapper({ dashboard, titles, showBar }) {
           {dashboard === 'header' && (
             <Box
               className={showBar ? classes.openHeader : classes.hideHeader}
-              borderRadius={showBar ? false : 10}
               p="10px"
             >
               <Typography className={classes.text}>{title}</Typography>

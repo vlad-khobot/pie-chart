@@ -108,9 +108,9 @@ export default function CustomBarChart() {
         bottom: 0,
       }}
       layout="vertical"
-      barCategoryGap={2}
+      barCategoryGap={2.5}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      <CartesianGrid strokeDasharray="3 0" horizontal={false} opacity={0.5} />
       <XAxis
         type="number"
         tick={{ fontSize: 6, fontFamily: 'sans-serif' }}

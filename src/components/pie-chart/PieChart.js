@@ -67,7 +67,11 @@ export default function CustomPieChart({ field }) {
               cy="50%"
               innerRadius={30}
               outerRadius={50}
-            />
+            >
+              {/* <Label width={30} position="center">
+                {`${maxValue} `}
+              </Label> */}
+            </Pie>
             <Tooltip wrapperStyle={{ zIndex: 1000 }} />
           </PieChart>
         </>
