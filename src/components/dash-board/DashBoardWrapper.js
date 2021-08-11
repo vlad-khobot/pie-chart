@@ -8,11 +8,18 @@ const useStyles = makeStyles(() => ({
   },
   openHeader: {
     background: '#363e4c',
+    width: 280,
+    height: 30,
+    display: 'flex',
+    alignItems: 'center',
   },
   hideHeader: {
     background: '#202938',
-    width: 1380,
+    width: 1400,
     borderRadius: 10,
+    height: 30,
+    display: 'flex',
+    alignItems: 'center',
   },
   text: {
     color: '#e4e9eb',
@@ -21,7 +28,7 @@ const useStyles = makeStyles(() => ({
     fontSize: '14px',
     minWidth: 260,
     width: '100%',
-    height: 14,
+    marginLeft: 15,
   },
   plholder: {
     width: 280,
@@ -42,10 +49,7 @@ export default function DashBoardWrapper({ dashboard, titles, showBar }) {
       {titles.map(title => (
         <Grid key={title} item>
           {dashboard === 'header' && (
-            <Box
-              className={showBar ? classes.openHeader : classes.hideHeader}
-              p="10px"
-            >
+            <Box className={showBar ? classes.openHeader : classes.hideHeader}>
               <Typography className={classes.text}>{title}</Typography>
             </Box>
           )}

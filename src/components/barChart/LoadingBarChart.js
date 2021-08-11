@@ -47,7 +47,7 @@ export default function LoadingBarChart() {
       >
         <XAxis type="number" hide />
         <YAxis dataKey="name" type="category" interval={0} hide />
-        <Tooltip />
+        <Tooltip cursor={false} />
         <Legend
           align="left"
           wrapperStyle={{
@@ -66,9 +66,24 @@ export default function LoadingBarChart() {
           dataKey="used"
           stackId={2}
           fill="#e31c1c"
-          background={{ color: '#fff', opacity: '80%' }}
+          background={{
+            color: '#fff',
+            opacity: '80%',
+            height: 18,
+            width: 245,
+            radius: 15,
+            y: 56,
+            x: 17.5,
+          }}
+          radius={[15, 0, 0, 15]}
         />
-        <Bar legendType="circle" dataKey="free" stackId={2} fill="#08ad36" />
+        <Bar
+          legendType="circle"
+          dataKey="free"
+          stackId={2}
+          fill="#08ad36"
+          radius={[0, 15, 15, 0]}
+        />
       </BarChart>
     </>
   );

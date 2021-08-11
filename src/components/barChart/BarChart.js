@@ -150,25 +150,31 @@ export default function CustomBarChart() {
         dataKey={update}
         stackId={1}
         fill="#08ad36"
-        background={{ color: '#fff', opacity: '80%' }}
+        background={{ color: '#fff', opacity: '80%', radius: 15 }}
+        // radius={[15, 0, 0, 15]}
+        radius={15}
       />
       <Bar
         legendType="circle"
         dataKey={updateAvailable}
         stackId={1}
         fill="#1b7b36"
+        radius={15}
       />
       <Bar
         legendType="circle"
         dataKey={updateRequired}
         stackId={1}
         fill="#de7800"
+        radius={15}
       />
       <Bar
         legendType="circle"
         dataKey={outOfSupport}
         stackId={1}
         fill="#e31c1c"
+        // radius={[0, 15, 15, 0]}
+        radius={15}
       />
     </BarChart>
   );

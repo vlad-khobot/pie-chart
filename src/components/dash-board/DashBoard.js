@@ -10,9 +10,9 @@ import DashBoardWrapper from './DashBoardWrapper';
 const useStyles = makeStyles(() => ({
   arrow: {
     position: 'absolute',
-    top: '6px',
-    right: '10px',
-    fontSize: '30px',
+    top: '3px',
+    right: '15px',
+    fontSize: '16x',
     background: 'gray',
     width: '16px',
     height: '16px',
@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: 10,
   },
   arrowIcon: {
-    fontSize: '30px',
+    fontSize: '16px',
   },
   openHeader: {
     background: '#363e4c',
