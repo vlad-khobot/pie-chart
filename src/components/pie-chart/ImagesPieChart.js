@@ -1,17 +1,16 @@
 import { List, ListItem, makeStyles, Typography } from '@material-ui/core';
+import { PieChart, Pie, Tooltip, Label } from 'recharts';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import { PieChart, Pie, Tooltip } from 'recharts';
 import data from '../../data/data.json';
 import { getVPSAimagesData } from '../../helpers/funtions';
 import { pieChartStyles } from '../../styles/pieChartStyles';
-
 import s from './pieChart.module.css';
 
 const useStyles = makeStyles(() => pieChartStyles);
 
 const VPSAdata = getVPSAimagesData(data, 'Compute A');
 
-export default function ImagesPieChart({ field }) {
+export default function ImagesPieChart() {
   const classes = useStyles();
   return (
     <>
@@ -39,10 +38,20 @@ export default function ImagesPieChart({ field }) {
           cy="50%"
           innerRadius={30}
           outerRadius={50}
-        />
+        >
+          <Label
+            fontFamily="sans-serif"
+            fontSize={14}
+            fontWeight="bold"
+            fill="#e4e9eb"
+            width={35}
+            position="center"
+          >
+            {`${VPSAdata[0].total}`}
+          </Label>
+        </Pie>
         <Tooltip wrapperStyle={{ zIndex: 1000 }} />
       </PieChart>
-      <span className={s.value}>{VPSAdata[0].total}</span>
     </>
   );
 }

@@ -1,7 +1,8 @@
 import { List, ListItem, makeStyles, Typography } from '@material-ui/core';
+import { PieChart, Pie, Tooltip, Label } from 'recharts';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import { PieChart, Pie, Tooltip } from 'recharts';
 import data from '../../data/data.json';
+import pirCharts from '../../data/pieCharts.json';
 import { getMaxValue, getVisibleUsers } from '../../helpers/funtions';
 import { pieChartStyles } from '../../styles/pieChartStyles';
 import s from './pieChart.module.css';
@@ -39,11 +40,29 @@ export default function MainPieChart({ field }) {
           innerRadius={30}
           outerRadius={50}
         >
-          {/* <Label width={30} position="center">
-                {`${maxValue} `}
-              </Label> */}
+          {pirCharts.includes(field) && (
+            <Label
+              fontFamily="sans-serif"
+              fontSize={14}
+              fontWeight="bold"
+              fill="#e4e9eb"
+              width={35}
+              position="center"
+            >
+              {`${maxValue}
+                ${field === 'Capacity by cloud' ? 'TiB' : ''}
+                ${field === 'EBS capacity by organization' ? 'TiB' : ''}
+                ${field === 'Capacity by organization' ? 'TiB' : ''}
+                ${field === 'Capacity by account' ? 'TiB' : ''}
+                ${field === 'Capacity by VPSA' ? 'TiB' : ''}${
+                field === 'Objects by cloud' ? 'Billion' : ''
+              }${field === 'Objects by organization' ? 'Billion' : ''}${
+                field === 'Objects by accounts' ? 'Billion' : ''
+              }`}
+            </Label>
+          )}
         </Pie>
-        <Tooltip wrapperStyle={{ zIndex: 1000 }} />
+        <Tooltip wrapperStyle={{ zIndex: 100 }} />
       </PieChart>
     </>
   );

@@ -1,7 +1,6 @@
  [
   {
     "name": "Compute A",
-    "value": 2400,
     "fill": "#a304ff",
     "Compute account by Cloud": 6,
     "Compute account by organization": 2,
@@ -24,7 +23,6 @@
   },
   {
     "name": "Compute B",
-    "value": 4567,
     "fill": "#2ce913",
     "Compute account by Cloud": 8,
     "Compute account by organization": 10,
@@ -47,7 +45,6 @@
   },
   {
     "name": "Compute C",
-    "value": 5000,
     "fill": "#fbff00",
     "Compute account by Cloud": 12,
     "Compute account by organization": 40,
@@ -70,7 +67,6 @@
   },
   {
     "name": "Compute D",
-    "value": 3000,
     "fill": "#04ffdd",
     "Compute account by Cloud": 1,
     "Compute account by organization": 0,
@@ -93,7 +89,6 @@
   },
   {
     "name": "Compute E",
-    "value": 3908,
     "fill": "#0447ff",
     "Compute account by Cloud": 3,
     "Compute account by organization": 0,
@@ -116,7 +111,6 @@
   },
   {
     "name": "Compute F",
-    "value": 4800,
     "fill": "#ff0458",
     "Compute account by Cloud": 1,
     "Compute account by organization": 0,
@@ -139,7 +133,6 @@
   },
   {
     "name": "Compute G",
-    "value": 4800,
     "fill": "#ff4d4d",
     "Compute account by Cloud": 5,
     "Compute account by organization": 0,
@@ -162,7 +155,6 @@
   },
   {
     "name": "Compute H",
-    "value": 4800,
     "fill": "#097200",
     "Compute account by Cloud": 2,
     "Compute account by organization": 1,

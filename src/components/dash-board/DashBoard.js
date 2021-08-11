@@ -1,36 +1,14 @@
 import { Box, IconButton, makeStyles } from '@material-ui/core';
 import KeyboardArrowUpSharpIcon from '@material-ui/icons/KeyboardArrowUpSharp';
 import KeyboardArrowDownSharpIcon from '@material-ui/icons/KeyboardArrowDownSharp';
-import dashBoardTitles from '../../data/dashBoardTitle.json';
-import './dashBoard.css';
-import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { useState } from 'react';
+import dashBoardTitles from '../../data/dashBoardTitle.json';
 import DashBoardWrapper from './DashBoardWrapper';
+import { dashBoardStyles } from '../../styles/dashBoardStyles';
+import './dashBoard.css';
 
-const useStyles = makeStyles(() => ({
-  arrow: {
-    position: 'absolute',
-    top: '3px',
-    right: '15px',
-    fontSize: '16x',
-    background: 'gray',
-    width: '16px',
-    height: '16px',
-  },
-  dashboard: {
-    position: 'relative',
-    borderRadius: 10,
-  },
-  arrowIcon: {
-    fontSize: '16px',
-  },
-  openHeader: {
-    background: '#363e4c',
-  },
-  hideHeader: {
-    background: '#202938',
-  },
-}));
+const useStyles = makeStyles(() => dashBoardStyles);
 
 export default function DashBoard({ dashboard, user }) {
   const classes = useStyles();

@@ -7,11 +7,11 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { getUsersSupportStatisticWithoutFill } from '../../helpers/funtions';
-import data from '../../data/data.json';
-import s from './barChart.module.css';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import { useState } from 'react';
+import data from '../../data/data.json';
+import { getUsersSupportStatisticWithoutFill } from '../../helpers/funtions';
+import s from './barChart.module.css';
 
 export default function CustomBarChart() {
   const [update, setUpdate] = useState('Updated');

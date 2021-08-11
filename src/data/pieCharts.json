@@ -1,0 +1,17 @@
+[
+  "Compute account by Cloud",
+  "Compute account by organization",
+  "VMs by organization",
+  "EBS volumes by organization",
+  "EBS capacity by organization",
+  "Capacity by cloud",
+  "Capacity by organization",
+  "Objects by cloud",
+  "Objects by organization",
+  "Capacity by cloud",
+  "Capacity by account",
+  "Objects by cloud",
+  "Objects by accounts",
+  "Capacity by VPSA",
+  "VPSAs by organization"
+]

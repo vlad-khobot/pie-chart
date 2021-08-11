@@ -63,10 +63,3 @@ export function getVPSAimagesData(data, userName) {
       };
     });
 }
-
-// {
-//         Updated: user['Updated'],
-//         'Update required': user['Update required'],
-//         'Out of support': user['Out of support'],
-//         'Update available': user['Update available'],
-//       };
