@@ -12,12 +12,12 @@ export const pieChartStyles = {
     },
     '&::-webkit-scrollbar-track': {
       '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.5)',
-      borderRadius: 10,
+      borderRadius: '10px',
     },
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: 'rgba(0,0,0,.1)',
-      outline: '1px solid slategrey',
-      borderRadius: 10,
+      border: '1px solid slategrey',
+      borderRadius: '10px',
     },
     paddingRight: 8,
     boxSizing: 'border-box',

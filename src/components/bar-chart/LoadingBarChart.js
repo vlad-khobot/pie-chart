@@ -76,6 +76,8 @@ export default function LoadingBarChart() {
             x: 17.5,
           }}
           radius={[15, 0, 0, 15]}
+          name="Used"
+          unit=" TiB"
         />
         <Bar
           legendType="circle"
@@ -83,6 +85,8 @@ export default function LoadingBarChart() {
           stackId={2}
           fill="#08ad36"
           radius={[0, 15, 15, 0]}
+          name="Free"
+          unit=" TiB"
         />
       </BarChart>
     </>
