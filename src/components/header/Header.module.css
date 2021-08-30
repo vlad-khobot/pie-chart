@@ -1,0 +1,52 @@
+
+
+.toolbar {
+  background: #111828;
+  color: #EBEBEB;
+  border: 1px solid rgba(46, 53, 69, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.clientBlock {
+  display: flex;
+}
+
+.backButton {
+  width: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.serviceName {
+  margin-left: 8px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  
+}
+
+.horizontalLine1 {
+  background-color: #EBEBEB  ;
+  width: 1px;
+  height: 30px;
+}
+
+.horizontalLine2 {
+  background-color: #2E3545  ;
+  width: 1px;
+  height: 34px;
+}
