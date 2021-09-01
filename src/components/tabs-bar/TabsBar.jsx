@@ -8,48 +8,67 @@ const AntTabs = withStyles({
         color: "rgba(235, 235, 235, 0.5)",
     },
     indicator: {
-        backgroundColor: "#111828",
+        display: "none",
     },
 })(Tabs);
 
 const AntTab = withStyles((theme) => ({
     root: {
         textTransform: 'none',
-        minWidth: 72,
-        backgroundColor: "#111828",
-        border: "1px solid rgba(46, 53, 69, 0.5)",
-        borderRadius: "5.5px 5.5px 0 0",
         fontSize: '14px',
-        fontWeight: theme.typography.fontWeightRegular,
         fontFamily: "lato",
+        paddingRight: '25px',
+        paddingLeft: '20px',
+        marginLeft: '-7px',
+        fontWeight: '400',
         opacity: 1,
+        overflow: "visible",
+        position: "relative",
+
         '&:hover': {
             color: 'white',
         },
         '&$selected': {
             color: 'white',
-            fontWeight: 'bold',
+            fontWeight: '700',
+        },
+        '&$selected::before': {
+            background: 'linear-gradient(rgb(72 72 90), #111828, #111828)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+            borderBottom: '0',
         },
         '&:focus': {
             color: 'white',
         },
-
+        '&::before': {
+            content: "''",
+            position: 'absolute',
+            top: 0, right: 0, bottom: 0, left: 0,
+            zIndex: '-1',
+            background: 'linear-gradient(#111828, #111828)',
+            border: '1px solid #1f2737',
+            borderBottom: '3px solid #1f2737',
+            borderRadius: '10px 10px 0 0',
+            transform: 'perspective(10px) rotateX(2deg) scale(1, 1)',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 7% 100%)',
+        },
     },
     selected: {
-        background: "linear-gradient(rgb(72 72 90), #111828, #111828)",
+        
     },
 }))((props) => <Tab disableRipple {...props} />);
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: "flex",
-        justifyContent: "space-between",
+    push: {
+        marginLeft: "auto",
     },
     horyzontalLine: {
         width: "100%",
-        height: "4px",
+        height: "6px",
         backgroundColor: "#111828",
+        borderBottom: '1px solid #1f2737',
+        boxSizing: 'border-box',
     },
 
 }));
@@ -74,11 +93,15 @@ export default function CustomizedTabs({ dashboards, rightTabs = rightTabsTempla
             <AntTabs className={classes.root} value={value} onChange={handleChange} aria-label="dashboard navbar">
 
                 {dashboards.map(dashboard => (
-                    <AntTab label={dashboard} key={dashboard} />
+
+                    <AntTab className={classes.customTab} label={dashboard} key={dashboard} />
+
                 ))}
-                {rightTabs.map(elem => (
-                    <AntTab label={elem.label} key={elem.label} />
+
+                {rightTabs.map((elem, index) => (
+                    <AntTab className={index === 0 ? classes.push : ''} label={elem.label} key={elem.label} />
                 ))}
+
 
             </AntTabs>
             <div className={classes.horyzontalLine}></div>

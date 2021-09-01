@@ -31,6 +31,7 @@ export default function DashBoard({ dashboard, user }) {
           )}
         </IconButton>
         <DashBoardWrapper
+        handleShowBar={handleShowBar}
           showBar={showBar}
           titles={
             showBar

@@ -4,7 +4,7 @@ import RenderCharts from '../render-charts/RenderCharts';
 
 const useStyles = makeStyles(() => dashBoardWrapperStyles);
 
-export default function DashBoardWrapper({ dashboard, titles, showBar }) {
+export default function DashBoardWrapper({handleShowBar, dashboard, titles, showBar }) {
   const classes = useStyles();
   return (
     <Grid
@@ -16,7 +16,8 @@ export default function DashBoardWrapper({ dashboard, titles, showBar }) {
       {titles.map(title => (
         <Grid key={title} item>
           {dashboard === 'header' && (
-            <Box className={showBar ? classes.openHeader : classes.hideHeader}>
+            <Box className={showBar ? classes.openHeader : classes.hideHeader} onClick={showBar 
+              ? null : handleShowBar}>
               <Typography className={classes.text}>{title}</Typography>
             </Box>
           )}
