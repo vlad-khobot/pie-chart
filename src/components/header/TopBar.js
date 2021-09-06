@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import s from "./Header.module.css"
+import s from "./TopBar.module.css"
 import ProfileInfoBlock from './ProfileInfoBlock';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -16,14 +16,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({organizationInfo = sampleData.organizationInfo, userInfo = sampleData.userInfo}) {
+export default function TopBar({organizationInfo = sampleData.organizationInfo, userInfo = sampleData.userInfo}) {
 
   const classes = useStyles();
 
   return (
-    <header className={s.toolbar} position="static">
-
-
+    <div className={s.topBar} position="static">
 
         <div className={s.leftBlock}>
 
@@ -56,6 +54,6 @@ export default function Header({organizationInfo = sampleData.organizationInfo, 
 
 
 
-    </header>
+    </div>
   );
 }

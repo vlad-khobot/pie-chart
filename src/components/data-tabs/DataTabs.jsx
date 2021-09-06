@@ -12,7 +12,7 @@ const AntTabs = withStyles({
     },
 })(Tabs);
 
-const AntTab = withStyles((theme) => ({
+const AntTab = withStyles(() => ({
     root: {
         textTransform: 'none',
         fontSize: '14px',
@@ -59,7 +59,7 @@ const AntTab = withStyles((theme) => ({
 }))((props) => <Tab disableRipple {...props} />);
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     push: {
         marginLeft: "auto",
     },
@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#111828",
         borderBottom: '1px solid #1f2737',
         boxSizing: 'border-box',
+        marginBottom: "20px",
     },
 
 }));
@@ -79,7 +80,7 @@ const rightTabsTemplate = [
 ];
 
 
-export default function CustomizedTabs({ dashboards, rightTabs = rightTabsTemplate }) {
+export default function DataTabs({ dashboards, rightTabs = rightTabsTemplate }) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 

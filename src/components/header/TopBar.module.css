@@ -1,6 +1,6 @@
 
 
-.toolbar {
+.topBar {
   background: #111828;
   color: #EBEBEB;
   border: 1px solid rgba(46, 53, 69, 0.5);
@@ -9,6 +9,7 @@
   align-items: center;
   height: 40px;
   padding-left: 10px;
+  margin-bottom: 18px;
 }
 
 .clientBlock {
