@@ -9,3 +9,26 @@ body {
 .navigation-container {
     padding: 0 10px;
 }
+
+.demo-container {
+    flex-direction: column;
+    padding: 10px;
+    display: flex;
+}
+
+.demo-item {
+    margin-top: 10px;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dialog-menu .MuiMenu-paper {
+    top: 50% !important;
+    border: 1px solid #DADADA;
+    box-shadow: none !important;
+}
+
+.dialog-menu .MuiPaper-rounded {
+    border-radius: 0;
+}

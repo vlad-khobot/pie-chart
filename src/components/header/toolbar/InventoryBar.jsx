@@ -28,23 +28,19 @@ const MyTab = withStyles((theme) => ({
         minWidth: "0",
         color: "#A3AAB6",
         borderRadius: "15px",
-        opacity: 1,
         minHeight: 0,
 
         '&:hover': {
             color: 'white',
-        },
-        '&$selected': {
-            color: 'white',
-            fontWeight: '700',
-            backgroundColor: "#1E96FCCC",
         },
         '&:focus': {
             color: 'white',
         },
     },
     selected: {
-
+        color: 'white',
+        fontWeight: '700',
+        backgroundColor: "#1E96FCCC",
     },
 }))((props) => <Tab disableRipple {...props} />);
 

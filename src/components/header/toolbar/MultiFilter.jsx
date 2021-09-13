@@ -4,9 +4,11 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import FilterIcon from "../../common/FilterIcons";
+import FilterIcon from "./icons/FilterIcons";
 import ClearIcon from '@material-ui/icons/Clear';
 import { useCallback } from "react";
+import { multiFilterStyles } from "./multiFilterStyles";
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 
 const AutocompleteMy = withStyles({
@@ -45,50 +47,18 @@ const AutocompleteMy = withStyles({
 
 })((props) => <Autocomplete {...props} />);
 
-const useStyles = makeStyles(theme => ({
-  wrapper: {
-    width: '313px',
-    boxSizing: "border-box",
-    borderRadius: "10px",
-    border: '1px solid rgba(255, 255, 255, 0.2)',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    display: "flex",
-    alignItems: 'center',
-    height: "40px",
-    "&:hover": {
-      border: '1px solid rgba(255, 255, 255, 1)',
-    }
-  },
-  textField: {
-    padding: "0 !important",
-    "& *": {
-      padding: "0 !important",
-    },
-    "& input": {
-      paddingRight: "50px !important",
-    }
-  },
-  filterIconOn: {
-    marginLeft: "10px",
-    color: "rgba(30, 150, 252, 1)",
-  },
-  filterIconOff: {
-    marginLeft: "10px",
-    color: "rgba(235, 235, 235, 0.5)",
-  }
+const useStyles = makeStyles(theme => (multiFilterStyles));
 
-}));
-
-export default function MultiFilter({ value, onChange }) {
+export default function MultiFilter({ filters, onFilter }) {
   const classes = useStyles();
   const [search, setSearch] = useState("");
 
-  const filter = !!search || value.length !== 0;
-
-  const iconClass = filter ? classes.filterIconOn : classes.filterIconOff;
+  const filterIsUse = !!search || filters.length !== 0;
+  const iconClass = filterIsUse ? classes.filterIconOn : classes.filterIconOff;
 
 
   const renderTags = useCallback(selected => {
+
     let renderTagsValue = selected
       .map(function (elem) {
         return elem.title;
@@ -110,13 +80,14 @@ export default function MultiFilter({ value, onChange }) {
   }, []);
 
   const autocompleteInput = useCallback((params) => {
-    params.InputProps.disableUnderline = true;
+    const {InputProps} = params;
 
     return (
       <>
         <TextField
           {...params}
           value={search}
+          InputProps={{...InputProps, disableUnderline : true}}
           onChange={onSearch}
           className={classes.textField}
           variant="filled"
@@ -126,6 +97,8 @@ export default function MultiFilter({ value, onChange }) {
     )
   }, [classes.textField, onSearch, search]);
 
+  const arrowColor = filterIsUse ? "white" : "#535864"
+
   return (
     <div className={classes.wrapper}>
 
@@ -134,16 +107,19 @@ export default function MultiFilter({ value, onChange }) {
       <AutocompleteMy
         multiple
 
-        value={value}
-        onChange={onChange}
+        value={filters} // will be transferred to renderTags like params "selected"
+        onChange={onFilter}
         disableListWrap={true}
         disableCloseOnSelect={false}
         options={filterOptions}
-        renderTags={renderTags}
+        
         getOptionLabel={option => option.title}
 
+        renderTags={renderTags}
         renderInput={autocompleteInput}
+
         closeIcon={<ClearIcon style={{ color: 'white' }} fontSize='small' />}
+        popupIcon={<ExpandLessIcon style={{color: arrowColor}}/>}
       />
     </div>
   );
