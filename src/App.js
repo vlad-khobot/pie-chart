@@ -8,8 +8,8 @@ import dashboardTitles from './data/dashBoardTitle.json';
 import ProfileCard from './components/iam-dashboards/profile/ProfileCard';
 import OrganizationCard from './components/iam-dashboards/organization/OrganizationCard';
 import AlertsCard from './components/iam-dashboards/notifications/AlertsCard';
-import EdgeServicesCard from './components/edge-services-cards/EdgeServiceCard';
 import ServieCard from './components/edge-services-cards/ServiceCard';
+import { ReactComponent as ObjectStorageIcon } from "./components/edge-services-cards/icons/ObjectStorageIcon.svg";
 
 function App() {
   const dashboards = Object.keys(dashboardTitles.master);
@@ -29,7 +29,8 @@ function App() {
           <AlertsCard />
         </div>
         <div className="demo-item">
-          <EdgeServicesCard />
+          <ServieCard icon={<ObjectStorageIcon />} title="Object Storage Accounts" amount={7} description="Virtual Object Storage accounts support multi-tenancy, for reduced costs with the same security and QoS you’ve come to expect from Zadara."/>
+          <ServieCard icon={<ObjectStorageIcon />} title="Object Storage Accounts" amount={0} description="Virtual Object Storage accounts support multi-tenancy, for reduced costs with the same security and QoS you’ve come to expect from Zadara."/>
           <ServieCard/>
         </div>
       </div>
