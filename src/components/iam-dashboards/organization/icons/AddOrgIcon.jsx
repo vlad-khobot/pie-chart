@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function AddUserIcon() {
+export default function AddOrgIcon() {
   const classes = useStyles();
 
   return (

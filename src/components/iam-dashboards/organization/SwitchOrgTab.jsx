@@ -10,8 +10,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Avatar } from "@material-ui/core";
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { ReactComponent as ArrowDownIcon } from './icons/ArrowDownIcon.svg';
-import { ReactComponent as CloseDialogIcon } from './icons/CloseDialogIcon.svg';
+import { ReactComponent as ArrowDownIcon } from './icons/arrowDownIcon.svg';
+import { ReactComponent as CloseDialogIcon } from './icons/closeDialogIcon.svg';
 
 const useStyles = makeStyles((theme) => ({
   dialogRoot: {

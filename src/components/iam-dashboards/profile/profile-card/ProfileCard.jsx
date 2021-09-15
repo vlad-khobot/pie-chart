@@ -1,8 +1,8 @@
 import React from 'react';
-import MemberLabel from './MemberLabel';
+import AccessStatus from '../common/AccessStatus';
 import { makeStyles } from '@material-ui/core';
-import AddUserIcon from '../icons/AddUserIcon';
-import {ReactComponent as AvatarTemplate} from "../icons/AvatarTemplate.svg"
+import AddUserIcon from '../common/AddUserIcon';
+import {ReactComponent as AvatarTemplate} from "../common/avatarTemplate.svg"
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -42,7 +42,6 @@ const useStyles = makeStyles(() => ({
         color: "#FFFFFF",
         textAlign: "center",
         overflowWrap: "break-word",
-        maxWidth: "200px"
     }
 }));
 
@@ -54,7 +53,7 @@ export default function ProfileCard() {
             <div className={classes.root}>
                 <div className={classes.photoWrap}>
                     <div className={classes.avatar}><AvatarTemplate/></div>
-                    <MemberLabel />
+                    <AccessStatus small/>
                     <AddUserIcon/>
                 </div>
                 <span className={classes.profileName}>Darlene Robertson</span>

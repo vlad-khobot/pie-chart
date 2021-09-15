@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import AddOrgIcon from '../icons/AddOrgIcon';
+import AddOrgIcon from './icons/AddOrgIcon';
 import SwitchOrgTab from './SwitchOrgTab';
 
 const useStyles = makeStyles(() => ({
