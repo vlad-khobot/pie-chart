@@ -7,7 +7,7 @@ import { serviceCardStyles } from './serviceCardStyles';
 
 const useStyles = makeStyles(() => (serviceCardStyles));
 
-export default function Demo({ title, amount, description, icon, ...restProps }) {
+export default function ServiceCard({ title, amount, description, icon, ...restProps }) {
     const classes = useStyles();
 
     let titleClass, descriptionClass;
@@ -64,14 +64,14 @@ export default function Demo({ title, amount, description, icon, ...restProps })
     );
 }
 
-Demo.propTypes = {
+ServiceCard.propTypes = {
     title: PropTypes.string,
     amount: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
     description: PropTypes.string,
     icon: PropTypes.object,
 };
 
-Demo.defaultProps = {
+ServiceCard.defaultProps = {
     title: "No service",
     amount: null,
     description: "No description",

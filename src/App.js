@@ -8,7 +8,7 @@ import dashboardTitles from './data/dashBoardTitle.json';
 import ProfileCard from './components/iam-dashboards/profile/ProfileCard';
 import OrganizationCard from './components/iam-dashboards/organization/OrganizationCard';
 import AlertsCard from './components/iam-dashboards/notifications/AlertsCard';
-import ServieCard from './components/edge-services-cards/ServiceCard';
+import ServiceCard from "./components/edge-services-cards/ServiceCard";
 import { ReactComponent as ObjectStorageIcon } from "./components/edge-services-cards/icons/ObjectStorageIcon.svg";
 
 function App() {
@@ -29,9 +29,9 @@ function App() {
           <AlertsCard />
         </div>
         <div className="demo-item">
-          <ServieCard icon={<ObjectStorageIcon />} title="Object Storage Accounts" amount={7} description="Virtual Object Storage accounts support multi-tenancy, for reduced costs with the same security and QoS you’ve come to expect from Zadara."/>
-          <ServieCard icon={<ObjectStorageIcon />} title="Object Storage Accounts" amount={0} description="Virtual Object Storage accounts support multi-tenancy, for reduced costs with the same security and QoS you’ve come to expect from Zadara."/>
-          <ServieCard/>
+          <ServiceCard icon={<ObjectStorageIcon />} title="Object Storage Accounts" amount={7} description="Virtual Object Storage accounts support multi-tenancy, for reduced costs with the same security and QoS you’ve come to expect from Zadara."/>
+          <ServiceCard icon={<ObjectStorageIcon />} title="Object Storage Accounts" amount={0} description="Virtual Object Storage accounts support multi-tenancy, for reduced costs with the same security and QoS you’ve come to expect from Zadara."/>
+          <ServiceCard/>
         </div>
       </div>
 
