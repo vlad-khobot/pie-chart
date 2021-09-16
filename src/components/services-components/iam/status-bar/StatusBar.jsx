@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ReactComponent as AvatarTemplate} from "../common/avatarTemplate.svg";
-import {ReactComponent as ApprovedIcon} from "../common/approvedIcon.svg";
-import AccessStatus from '../common/AccessStatus';
+import {ReactComponent as AvatarTemplate} from "./avatarTemplate.svg";
+import {ReactComponent as ApprovedIcon} from "./approvedIcon.svg";
+import AccessStatus from './access-status/AccessStatus';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
         height: "125px",
         border: "3px solid #1E6EB3",
         borderRadius: "50%",
-        backgroundColor: "rgba(17, 24, 40, 1)",
+        backgroundColor: "#C4C4C4",
     },
     approvedIcon: {
         position: "absolute",

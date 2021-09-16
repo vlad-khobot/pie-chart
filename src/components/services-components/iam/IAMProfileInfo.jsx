@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
-import InformList from './InformList';
-import StatusBar from "./StatusBar";
-import mapImg from '../common/mapImg.png'
+import DetailedInformation from './detailed-information/DetailedInformation';
+import StatusBar from "./status-bar/StatusBar";
+import mapImg from './common/mapImg.png'
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export default function ProfileInfoPage() {
+export default function IAMProfileInfo() {
 
   const classes = useStyles();
 
@@ -29,7 +29,7 @@ export default function ProfileInfoPage() {
 
           <StatusBar/>
 
-          <InformList/>
+          <DetailedInformation/>
       </div>
   );
 }

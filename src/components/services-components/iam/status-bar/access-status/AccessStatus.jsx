@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import UserLabelIcon from './UserLabelIcon';
+import {ReactComponent as UserLabelIcon} from './userLabelIcon.svg';
 
 const useStyles = makeStyles(() => ({
     root: {

@@ -55,7 +55,7 @@ const IOSSwitch = withStyles((theme) => ({
   );
 });
 
-export default function CustomizedSwitches() {
+export default function ActiveSwitchTab() {
   const [state, setState] = React.useState(true);
 
   const handleChange = (event) => {

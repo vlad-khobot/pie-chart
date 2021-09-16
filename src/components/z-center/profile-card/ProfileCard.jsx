@@ -1,8 +1,8 @@
 import React from 'react';
-import AccessStatus from '../common/AccessStatus';
+import AccessStatus from '../../services-components/iam/status-bar/access-status/AccessStatus';
 import { makeStyles } from '@material-ui/core';
-import AddUserIcon from '../common/AddUserIcon';
-import {ReactComponent as AvatarTemplate} from "../common/avatarTemplate.svg"
+import AddUserIcon from './icons/AddUserIcon';
+import {ReactComponent as AvatarTemplate} from "./icons/avatarTemplate.svg";
 
 const useStyles = makeStyles(() => ({
     root: {

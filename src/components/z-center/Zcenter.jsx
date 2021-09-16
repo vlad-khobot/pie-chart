@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
-import AlertsCard from './alerts/AlertsCard';
-import OrganizationCard from './organization/OrganizationCard';
-import ProfileCard from './profile/profile-card/ProfileCard';
+import AlertsCard from './alerts-card/AlertsCard';
+import OrganizationCard from './organization-card/OrganizationCard';
+import ProfileCard from './profile-card/ProfileCard';
 import ServiceCard from './services-cards/ServiceCard';
 import { ReactComponent as BlockFileStorageIcon } from "./services-cards/icons/blockFileStorageIcon.svg";
 import { ReactComponent as PrivateStorageIcon } from "./services-cards/icons/privateStorageIcon.svg";

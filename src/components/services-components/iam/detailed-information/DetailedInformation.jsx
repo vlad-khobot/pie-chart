@@ -1,7 +1,7 @@
 import { Avatar, makeStyles } from '@material-ui/core';
 import React from 'react';
-import Switcher from '../common/Switcher';
-import { ReactComponent as ArrowIcon } from "../common/arrowIcon.svg";
+import ActiveSwitchTab from './ActiveSwitchTab';
+import { ReactComponent as ArrowIcon } from "./arrowIcon.svg";
 
 
 const useStyles = makeStyles({
@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 });
 
 
-export default function InformList({ isCompany, email, number, employer, currentOrganization, parentOrganization, jobTitle, country, active, website }) {
+export default function DetailedInformation({ isCompany, email, number, employer, currentOrganization, parentOrganization, jobTitle, country, active, website }) {
     const classes = useStyles();
 
     let contactsMarkup, businessInfoMarkup;
@@ -132,7 +132,7 @@ export default function InformList({ isCompany, email, number, employer, current
 
                 <div className={classes.row}>
                     <div className={classes.fieldName}>Active</div>
-                    <div><Switcher /></div>
+                    <div><ActiveSwitchTab /></div>
                     <ArrowIcon />
                 </div>
 
@@ -141,7 +141,7 @@ export default function InformList({ isCompany, email, number, employer, current
     );
 }
 
-InformList.defaultProps = {
+DetailedInformation.defaultProps = {
     isCompany: false,
     website: "somewebcite.com",
     email: "somemail@mail.com",
