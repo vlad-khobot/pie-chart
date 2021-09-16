@@ -5,38 +5,26 @@ import TopBar from './components/header/top-bar/TopBar';
 import Toolbar from './components/header/toolbar/Toolbar';
 import DataTabs from './components/header/data-tabs/DataTabs';
 import dashboardTitles from './data/dashBoardTitle.json';
-import ProfileCard from './components/iam-dashboards/profile/profile-card/ProfileCard';
-import OrganizationCard from './components/iam-dashboards/organization/OrganizationCard';
-import AlertsCard from './components/iam-dashboards/notifications/AlertsCard';
-import ServiceCard from "./components/edge-services-cards/ServiceCard";
-import { ReactComponent as ObjectStorageIcon } from "./components/edge-services-cards/icons/ObjectStorageIcon.svg";
-import ProfileInfoPage from './components/iam-dashboards/profile/profile-info-page/ProfileInfoPage';
+import ProfileCard from './components/z-center/profile/profile-card/ProfileCard';
+import OrganizationCard from './components/z-center/organization/OrganizationCard';
+import AlertsCard from './components/z-center/alerts/AlertsCard';
+import ServiceCard from "./components/z-center/services-cards/ServiceCard";
+import ProfileInfoPage from './components/z-center/profile/profile-info-page/ProfileInfoPage';
+import Zcenter from './components/z-center/Zcenter';
 
 function App() {
   const dashboards = Object.keys(dashboardTitles.master);
 
   return (
     <>
-      <TopBar />
-
+      {/* <TopBar />
       <div className="navigation-container">
         <DataTabs dashboards={dashboards} />
         <DashBoard dashboard={dashboards[0]} user={'master'} />
         <Toolbar />
       </div>
-      <div className="demo-container">
-        <div className="demo-item">
-          <OrganizationCard />
-          <ProfileCard />
-          <AlertsCard />
-        </div>
-        <div className="demo-item">
-          <ServiceCard icon={<ObjectStorageIcon />} title="Object Storage Accounts" description="Virtual Object Storage accounts support multi-tenancy, for reduced costs with the same security and QoS you’ve come to expect from Zadara."/>
-
-        </div>
-      </div>
-      <ProfileInfoPage/>
-
+      <ProfileInfoPage/> */}
+      <Zcenter/>
 
       {/* {dashboards.map(dashboard => (
         <Box m={1} key={dashboard}>

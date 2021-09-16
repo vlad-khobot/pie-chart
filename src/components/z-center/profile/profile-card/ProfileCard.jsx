@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "9px 16px",
+        margin: "0 14px",
         alignItems: "center",
         boxSizing: "border-box",
         backgroundColor: "rgba(255, 255, 255, 0.2)",

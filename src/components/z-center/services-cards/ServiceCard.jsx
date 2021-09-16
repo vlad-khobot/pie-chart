@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
-import { ReactComponent as AddIcon } from "./icons/AddIcon.svg"
-import HorizontalLine from '../common/HorizontalLine';
+import { ReactComponent as AddIcon } from "./icons/addIcon.svg"
+import HorizontalLine from '../../common/HorizontalLine';
 import { serviceCardStyles } from './serviceCardStyles';
 
 const useStyles = makeStyles(() => (serviceCardStyles));

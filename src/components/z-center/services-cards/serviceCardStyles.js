@@ -5,6 +5,9 @@ export const serviceCardStyles = {
             boxSizing: "border-box",
         },
         display: "flex",
+        fontFamily: 'Roboto',
+        marginRight: "50px",
+        marginTop: "18px",
         alignItems: 'stretch',
         flexDirection: "column",
         boxSizing: "border-box",
@@ -56,7 +59,7 @@ export const serviceCardStyles = {
     descriptionRoot: {
         borderTop: "1px solid #65646D",
         flexGrow: 1,
-        fontSize: "10px",
+        fontSize: "14px",
     },
     descriptionContent: {
         padding: '10px',
@@ -64,7 +67,6 @@ export const serviceCardStyles = {
     },
     fullDescriptionContent: {
         padding: '10px',
-        fontSize: "14px",
     },
     buttonBlock: {
         flexDirection: "column",
