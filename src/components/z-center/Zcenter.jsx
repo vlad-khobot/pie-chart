@@ -47,21 +47,24 @@ export default function Zcenter({ edgeServicesInfo, servicesInfo }) {
                 <ProfileCard />
                 <AlertsCard />
             </div>
+
             <div className={classes.title}>Edge Services</div>
             <div className={classes.edgeServices}>
                 {edgeServicesInfo.map(elem =>
                     <ServiceCard title={elem.title} description={elem.description} amount={elem.amount}
-                        icon={elem.icon} key={elem.title}/>
+                        icon={elem.icon} key={elem.title} />
                 )}
             </div >
+
             <div className={classes.title}>Services</div>
             <div className={classes.services}>
                 {servicesInfo.map(elem =>
                     <ServiceCard title={elem.title} description={elem.description}
-                        icon={elem.icon} key={elem.title}/>
+                        icon={elem.icon} key={elem.title} />
                 )}
             </div>
-            <Banner/>
+
+            <Banner />
         </div>
     );
 }

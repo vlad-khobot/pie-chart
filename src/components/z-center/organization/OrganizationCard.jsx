@@ -58,7 +58,7 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-export default function OrganizationCard() {
+export default function OrganizationCard({organitions}) {
     const classes = useStyles();
 
     return (
@@ -67,7 +67,7 @@ export default function OrganizationCard() {
                 <div className={classes.avatar}></div>
                 <div className={classes.content}>
                     <div className={classes.switchSelector}>
-                        <SwitchOrgTab/>
+                        {organitions > 1 && <SwitchOrgTab/>}
                         <AddOrgIcon/>
                     </div>
                     <div className={classes.orgInfo}>
@@ -81,4 +81,8 @@ export default function OrganizationCard() {
             </div>
         </>
     );
+}
+
+OrganizationCard.defaultProps = {
+    organitions: 2,
 }

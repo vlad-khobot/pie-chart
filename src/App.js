@@ -17,13 +17,13 @@ function App() {
 
   return (
     <>
-      {/* <TopBar />
+      <TopBar />
       <div className="navigation-container">
         <DataTabs dashboards={dashboards} />
         <DashBoard dashboard={dashboards[0]} user={'master'} />
         <Toolbar />
       </div>
-      <ProfileInfoPage/> */}
+      <ProfileInfoPage/>
       <Zcenter/>
 
       {/* {dashboards.map(dashboard => (
