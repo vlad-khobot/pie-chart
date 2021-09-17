@@ -1,6 +1,6 @@
 export const toolBarStyles ={
     margin: {
-        marginTop: "18px",
+        margin: "18px 0",
     },
     customButton: {
         boxSize: "border-box",

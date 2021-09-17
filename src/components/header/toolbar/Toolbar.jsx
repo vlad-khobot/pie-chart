@@ -1,11 +1,12 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useCallback, useState } from 'react';
-import InventoryBar from './InventoryBar';
-import MultiFilter from './MultiFilter';
+import InventoryBar from './inventory-bar/InventoryBar';
+import MultiFilter from './filter/MultiFilter';
 import { toolBarStyles } from './toolBarStyles';
 import ExportIcon from './icons/ExportIcon';
 import DisplayIcon from './icons/DisplayIcon';
+import Pagination from './pagination/Pagination';
 
 
 const useStyles = makeStyles((theme) => (toolBarStyles));
@@ -35,7 +36,8 @@ export default function Toolbar() {
                     </Grid>
                 </Grid>
                 <Grid item>
-                    <Grid container>
+                    <Grid container alignItems="center">
+                        <Pagination/>
                         <button className={classes.customButton}>
                             <ExportIcon/>
                             Export

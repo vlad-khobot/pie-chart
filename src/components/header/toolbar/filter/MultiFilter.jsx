@@ -1,14 +1,14 @@
 /* eslint-disable no-use-before-define */
 import React, { useState } from "react";
+import { useCallback } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import FilterIcon from "./icons/FilterIcons";
 import ClearIcon from '@material-ui/icons/Clear';
-import { useCallback } from "react";
-import { multiFilterStyles } from "./multiFilterStyles";
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import {ReactComponent as FilterIcon} from "./filterIcons.svg";
+import { multiFilterStyles } from "./multiFilterStyles";
 
 
 const AutocompleteMy = withStyles({
@@ -102,7 +102,7 @@ export default function MultiFilter({ filters, onFilter }) {
   return (
     <div className={classes.wrapper}>
 
-      <div className={iconClass}> <FilterIcon viewBox="-3 -3 22 22" /> </div>
+      <div className={iconClass}> <FilterIcon /> </div>
 
       <AutocompleteMy
         multiple

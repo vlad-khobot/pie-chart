@@ -22,11 +22,17 @@ export const multiFilterStyles ={
       }
     },
     filterIconOn: {
+      position: "relative",
+      top: 2,
       marginLeft: "10px",
-      color: "rgba(30, 150, 252, 1)",
+      marginRight: "5px",
+      color: "#1E96FC",
     },
     filterIconOff: {
+      position: "relative",
+      top: 2,
       marginLeft: "10px",
+      marginRight: "5px",
       color: "rgba(235, 235, 235, 0.5)",
     }
   
