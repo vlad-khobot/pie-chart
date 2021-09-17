@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import React from "react";
 
 const useStyles = makeStyles(() => ({
-  horizontalLine: {
+  verticalLine: {
     minWidth: "1px",
     alignSelf: "center",
     backgroundColor: "#65646D",
@@ -10,11 +10,11 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function HorizontalLine({color, height}) {
+export default function VerticalLine({color, height}) {
   const classes = useStyles();
 
   return (
-    <div style={{backgroundColor: color, height: height}} className={classes.horizontalLine}>
+    <div style={{backgroundColor: color, height: height}} className={classes.verticalLine}>
     </div>
   );
 }

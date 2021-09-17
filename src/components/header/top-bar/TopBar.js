@@ -34,7 +34,7 @@ export default function TopBar({organizationInfo = sampleData.organizationInfo, 
             </span>
           </div>
 
-          <div className={s.horizontalLine1}></div>
+          <div className={s.verticalLine1}></div>
 
           <div className={s.serviceName}>
             <span>
@@ -47,7 +47,7 @@ export default function TopBar({organizationInfo = sampleData.organizationInfo, 
         <div className={s.clientBlock}>
 
           <ProfileInfoBlock profile={organizationInfo}/>
-          <div className={s.horizontalLine2}></div>
+          <div className={s.verticalLine2}></div>
           <ProfileInfoBlock profile={userInfo} />
 
         </div>

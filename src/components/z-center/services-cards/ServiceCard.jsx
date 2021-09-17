@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 import { ReactComponent as AddIcon } from "./icons/addIcon.svg"
-import HorizontalLine from '../../common/HorizontalLine';
+import VerticalLine from '../../common/VerticalLine';
 import { serviceCardStyles } from './serviceCardStyles';
 
 const useStyles = makeStyles(() => (serviceCardStyles));
@@ -34,7 +34,7 @@ export default function ServiceCard({ title, amount, description, icon, ...restP
                     </div>
                     {amount !== null &&
                         <>
-                            <HorizontalLine color="#EBEBEB" height="25px" />
+                            <VerticalLine color="#EBEBEB" height="25px" />
                             <div className={classes.titleAmount}>
                                 {amount > 0 ? amount : <AddIcon />}
                             </div>
@@ -48,7 +48,7 @@ export default function ServiceCard({ title, amount, description, icon, ...restP
                     </div>
                     {amount !== null &&
                         <>
-                            <HorizontalLine color="#65646D" height="60px" />
+                            <VerticalLine color="#65646D" height="60px" />
                             <div className={classes.buttonBlock}>
                                 {amount > 0 && <button className={classes.button}>View</button>}
                                 <button className={`${classes.button} ${classes.btnActive}`}>Create</button>

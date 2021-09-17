@@ -40,13 +40,13 @@
   
 }
 
-.horizontalLine1 {
-  background-color: #EBEBEB  ;
+.verticalLine1 {
+  background-color: #a19999  ;
   width: 1px;
   height: 30px;
 }
 
-.horizontalLine2 {
+.verticalLine2 {
   background-color: #2E3545  ;
   width: 1px;
   height: 34px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import HorizontalLine from '../../common/HorizontalLine';
+import VerticalLine from '../../common/VerticalLine';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -43,7 +43,7 @@ export default function NotificationLine({serviceMessage, amount}) {
                    {`${ serviceMessage ? ' services requiring attention' : ' new notifications'}`}
                 </div>
                 <div className={classes.viewBlock}>
-                    <HorizontalLine height="26px" color="white"/>
+                    <VerticalLine height="26px" color="white"/>
                     <div className={classes.view}>View</div>
                 </div>
             </div>
