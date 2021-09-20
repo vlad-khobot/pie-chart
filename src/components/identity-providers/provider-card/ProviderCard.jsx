@@ -1,5 +1,6 @@
 import { Avatar, makeStyles } from '@material-ui/core';
 import React from 'react';
+import MyButton from '../../common/UI/MyButton';
 import { ReactComponent as DeleteIcon } from './deleteIcon.svg';
 import { ReactComponent as EditIcon } from './editIcon.svg';
 
@@ -21,7 +22,7 @@ const useStyles = makeStyles(() => ({
         lineHeight: "16px",
         textTransform: "uppercase"
     },
-    downloadTitle: {fontWeight: 400, textTransform: "capitalize", },
+    downloadTitle: { fontWeight: 400, textTransform: "capitalize", },
     avatar: {
         marginRight: "12px",
         height: 60,
@@ -32,22 +33,12 @@ const useStyles = makeStyles(() => ({
         marginTop: 10,
         display: "flex",
         "& > button": {
-            fontFamily: "Roboto", fontSize: "14px", color: "white",
-            display: "flex",
-            alignItems: "center",
-            padding: "7px 17px",
-            borderRadius: "15px",
-            border: "none",
             marginLeft: "30px",
-            "&:first-child":{
+            "&:first-child": {
                 margin: "0",
             }
         }
     },
-    buttonActive: { backgroundColor: "#1E96FC" },
-    buttonLocal: { backgroundColor: "#6A6874" },
-    buttonDownload: { backgroundColor: "#D2EAFE", color: "#1E6EB3 !important",},
-    disabled: { opacity: 0.5 },
     editsIcons: {
         position: "absolute",
         right: 0, top: 5,
@@ -55,8 +46,8 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function ProviderCard({ providerName, isActive, isSystem, downloads, typeName}) {
-  
+export default function ProviderCard({ providerName, isActive, isSystem, downloads, typeName }) {
+
     const classes = useStyles();
 
     let titleClass = downloads ? `${classes.serviceTitle} ${classes.downloadTitle}` : classes.serviceTitle;
@@ -78,15 +69,15 @@ export default function ProviderCard({ providerName, isActive, isSystem, downloa
 
             <div className={classes.buttonsBlock}>
                 {downloads
-                    ? <button className={classes.buttonDownload}>
-                       Active Directory Identity Provider (Version 1.0.0.2)
-                      </button>
+                    ? <MyButton buttonStyle="download">
+                        Active Directory Identity Provider (Version 1.0.0.2)
+                    </MyButton>
                     :
                     <>
-                        <button className={classes.buttonActive}>Enebled</button>
-                        <button className={classes.buttonLocal}>{typeName}</button>
+                        <MyButton>Enebled</MyButton>
+                        <MyButton buttonStyle="semi">{typeName}</MyButton>
 
-                        {isSystem && <button className={`${classes.buttonActive} ${classes.disabled}`}>System</button>}
+                        {isSystem && <MyButton disabled>System</MyButton>}
                     </>}
 
             </div>

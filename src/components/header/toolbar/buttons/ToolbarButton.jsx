@@ -1,7 +1,7 @@
-export const toolBarStyles ={
-    margin: {
-        margin: "18px 0",
-    },
+import React from 'react';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
     customButton: {
         boxSize: "border-box",
         display: 'flex',
@@ -22,7 +22,16 @@ export const toolBarStyles ={
         "&:active": {
             backgroundColor: "rgba(30, 150, 252, 1)",
         }
-    },
-    
+    }
+}));
 
-};
+export default function ToolbarButton({children}) {
+
+    const classes = useStyles();
+
+    return (
+        <button className={classes.customButton}>
+            {children}
+        </button>
+    )
+}

@@ -43,7 +43,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export default function IdentityProviders({ providerName, }) {
+export default function IdentityProviders({ providerName}) {
 
     const classes = useStyles();
 

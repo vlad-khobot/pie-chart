@@ -24,7 +24,7 @@ function App() {
       <IAMProfileInfo/>
       <Zcenter/>
       <IdentityProviders/>
-      {/* <InviteUser/> */}
+      <InviteUser/>
 
       {/* {dashboards.map(dashboard => (
         <Box m={1} key={dashboard}>
