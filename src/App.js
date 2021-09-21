@@ -7,6 +7,7 @@ import DataTabs from './components/header/data-tabs/DataTabs';
 import dashboardTitles from './data/dashBoardTitle.json';
 import Zcenter from './components/z-center/Zcenter';
 import IAMProfileInfo from './components/services-components/iam/IAMProfileInfo';
+import ModalWindow from './components/common/UI/ModalWindow';
 
 function App() {
   const dashboards = Object.keys(dashboardTitles.master);
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <TopBar />
+    <ModalWindow>A</ModalWindow>
       <div className="navigation-container">
         <DataTabs dashboards={dashboards} />
         <DashBoard dashboard={dashboards[0]} user={'master'} />
@@ -21,6 +23,7 @@ function App() {
       </div>
       <IAMProfileInfo/>
       <Zcenter/>
+      {/* <SetPassword/> */}
 
       {/* {dashboards.map(dashboard => (
         <Box m={1} key={dashboard}>

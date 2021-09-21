@@ -1,43 +1,19 @@
 import { makeStyles } from '@material-ui/core';
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
-import { ReactComponent as CloseIcon } from './closeIcon.svg';
 import MyButton from '../../../common/UI/MyButton';
 import { ErrorMessage } from '@hookform/error-message';
 
 const useStyles = makeStyles(() => ({
-    root: {
-        display: "flex",
-        flexDirection: "column",
-        boxSizing: "border-box",
-        backgroundColor: "white",
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        fontFamily: "Lato",
-        fontSize: 16,
-        width: 800,
-        "& form": {
-            display: "flex",
-            flexDirection: "column",
-            paddingTop: 33,
-        }
-    },
-    header: {
-        display: "flex",
-        alignItems: "center",
-        position: "relative",
-        height: 54,
-        paddingLeft: 21,
-        color: "white",
-        fontSize: 24,
-        lineHeight: "29px",
-        backgroundColor: "#111828",
-        "& > svg": { position: "absolute", right: 9, top: 8, }
+    paddingTop: {
+        paddingTop: 33,
     },
     formPart: {
         display: 'flex',
         alignSelf: "center",
         flexDirection: "column",
-        padding: "16px 30px 7px 25px",
+        margin: "0px 122px 16px 104px",
+        padding: "16px 30px 13px 25px",
         marginBottom: 16,
         backgroundColor: "#EBEBEB",
         borderRadius: "29px",
@@ -47,7 +23,7 @@ const useStyles = makeStyles(() => ({
             boxSizing: "border-box",
             border: "1px solid rgba(46, 53, 69, 0.5)",
             backgroundColor: "white",
-            marginBottom: 20,
+            marginBottom: 15,
             borderRadius: 20,
             paddingLeft: 15,
             "&:focus": {
@@ -55,21 +31,23 @@ const useStyles = makeStyles(() => ({
                 boxShadow: '0 0 1pt 1pt cornflowerblue',
             }
         },
-        "& > label": { marginBottom: 8 },
+        "& > label": {fontSize: 14, marginBottom: 8 },
     },
     anotherMail: {
         color: "#1E96FC",
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: "bold",
         alignSelf: "flex-end",
-        marginBottom: 8,
+        marginBottom: 3,
         cursor: 'pointer',
     },
     buttonBlock: {
         display: "flex",
-        alignSelf: "flex-end",
-        margin: "16px 30px ",
+        justifyContent: "flex-end",
+        margin: "33px 30px 16px 30px",
         "& > button": {
+            height: 36,
+            borderRadius: 20,
             marginLeft: 13,
             "&:last-child": { padding: "0 47px" }
         },
@@ -85,7 +63,7 @@ export default function InviteUser({ handleClose }) {
         console.log(data);
         handleClose();
     };
-    console.log("errors", errors);
+    //console.log("erssssrors", errors);
 
     const [showOtherMailForm, setOtherMailForm] = useState(false);
 
@@ -93,16 +71,9 @@ export default function InviteUser({ handleClose }) {
         setOtherMailForm(!showOtherMailForm);
     }
 
-
-
     return (
 
-        <div className={classes.root}>
-
-            <div className={classes.header}>Invite User <CloseIcon onClick={handleClose} /></div>
-
-
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className={classes.paddingTop} onSubmit={handleSubmit(onSubmit)}>
 
                 <div className={classes.formPart}>
 
@@ -112,8 +83,8 @@ export default function InviteUser({ handleClose }) {
 
                     <label htmlFor="email"><span className={classes.required}>*</span>Email address</label>
                     <ErrorMessage errors={errors} name="emailAddress" render={() => <p style={{ color: "red", fontSize: 14 }}>enter your email</p>} />
-                    <input type="email" id="email" placeholder="Email address" {...register("emailAddress", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g })} />
-                    
+                    <input type="email" id="email" placeholder="Email address" {...register("emailAddress", { required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g })} />
+
                 </div>
 
                 <div className={classes.formPart}>
@@ -139,7 +110,8 @@ export default function InviteUser({ handleClose }) {
                         </>
                         :
                         <div onClick={showMailForm} className={classes.anotherMail}>
-                            + Add another email address</div>
+                            + Add another email address
+                        </div>
                     }
                 </div>
 
@@ -148,7 +120,5 @@ export default function InviteUser({ handleClose }) {
                     <MyButton type="submit">Send</MyButton>
                 </div>
             </form>
-
-        </div>
     );
 }

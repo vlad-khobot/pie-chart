@@ -1,8 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import ProviderCard from './provider-card/ProviderCard';
-import { ReactComponent as CloseIcon } from './closeIcon.svg';
-
 const useStyles = makeStyles(() => ({
     root: {
         display: "inline-flex",
@@ -47,9 +45,6 @@ export default function IdentityProviders({handleClose}) {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-
-            <div className={classes.header}>Identity Providers <CloseIcon onClick={handleClose}/></div>
 
             <div className={classes.providersBlock}>
 
@@ -64,7 +59,5 @@ export default function IdentityProviders({handleClose}) {
                     <ProviderCard downloads typeName="Downloads" />
                 </div>
             </div>
-
-        </div>
     );
 }

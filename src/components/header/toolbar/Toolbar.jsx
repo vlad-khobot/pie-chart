@@ -1,4 +1,4 @@
-import { Dialog, Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useCallback, useState } from 'react';
 import InventoryBar from './inventory-bar/InventoryBar';
@@ -10,20 +10,13 @@ import ToolbarButton from './buttons/ToolbarButton';
 import { ReactComponent as IDPicon } from "./icons/idp.svg"
 import InviteUser from '../../services-components/iam/invite-user/InviteUser';
 import IdentityProviders from '../../identity-providers/IdentityProviders';
+import ModalWindow from '../../common/UI/ModalWindow';
 
 
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: "18px 0",
     },
-    dialogWindow:{
-        "& .MuiDialog-paperWidthSm": {
-            maxWidth: "none",
-        },
-        "& .MuiBackdrop-root": {
-            backgroundColor: "rgba(76,79,86, 0.5)",
-        }
-    }
 }));
 
 
@@ -94,12 +87,12 @@ export default function Toolbar() {
 
             </Grid>
 
-            <Dialog className={classes.dialogWindow} open={inviteOpen} onClose={handleCloseInvite}>
+            <ModalWindow open={inviteOpen} onClose={handleCloseInvite} title="Invite User">
                 <InviteUser handleClose={handleCloseInvite}/>
-            </Dialog>
-            <Dialog className={classes.dialogWindow} open={providersOpen} onClose={handleCloseIDP}>
+            </ModalWindow>
+            <ModalWindow open={providersOpen} onClose={handleCloseIDP} title="Identity Providers">
                 <IdentityProviders handleClose={handleCloseIDP}/>
-            </Dialog>
+            </ModalWindow>
         </>
     );
 }
