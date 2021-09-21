@@ -1,8 +1,9 @@
-import {makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import { ReactComponent as CloseIcon } from './closeIcon.svg';
 import MyButton from '../../../common/UI/MyButton';
+import { ErrorMessage } from '@hookform/error-message';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -72,10 +73,10 @@ const useStyles = makeStyles(() => ({
             marginLeft: 13,
             "&:last-child": { padding: "0 47px" }
         },
-    },
+    }, required: { color: "red" }
 }));
 
-export default function InviteUser({handleClose}) {
+export default function InviteUser({ handleClose }) {
 
     const classes = useStyles();
 
@@ -84,7 +85,7 @@ export default function InviteUser({handleClose}) {
         console.log(data);
         handleClose();
     };
-    //console.log(errors);
+    console.log("errors", errors);
 
     const [showOtherMailForm, setOtherMailForm] = useState(false);
 
@@ -92,21 +93,27 @@ export default function InviteUser({handleClose}) {
         setOtherMailForm(!showOtherMailForm);
     }
 
+
+
     return (
 
         <div className={classes.root}>
 
-            <div className={classes.header}>Invite User <CloseIcon onClick={handleClose}/></div>
+            <div className={classes.header}>Invite User <CloseIcon onClick={handleClose} /></div>
 
 
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className={classes.formPart}>
-                    <label htmlFor="name">*Full Name</label>
-                    <input type="text" id="name" placeholder="Full Name" {...register("Full name", { required: true, pattern: /[A-Za-zА-Яа-яЁё]{4,}/i })} />
 
-                    <label htmlFor="email">*Email address</label>
-                    <input type="email" id="email" placeholder="Email address" {...register("email address", { required: true })} />
+                    <label htmlFor="name"><span className={classes.required}>*</span>Full Name</label>
+                    <ErrorMessage errors={errors} name="fullName" render={() => <p style={{ color: "red", fontSize: 14 }}>enter your full name</p>} />
+                    <input type="text" id="name" placeholder="Full Name" {...register("fullName", { required: true, pattern: /[A-Za-zА-Яа-яЁё \s]{2}/i })} />
+
+                    <label htmlFor="email"><span className={classes.required}>*</span>Email address</label>
+                    <ErrorMessage errors={errors} name="emailAddress" render={() => <p style={{ color: "red", fontSize: 14 }}>enter your email</p>} />
+                    <input type="email" id="email" placeholder="Email address" {...register("emailAddress", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g })} />
+                    
                 </div>
 
                 <div className={classes.formPart}>
