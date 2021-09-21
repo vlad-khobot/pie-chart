@@ -20,7 +20,8 @@ const useStyles = makeStyles(() => ({
         fontWeight: "bold",
         fontSize: "14px",
         lineHeight: "16px",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        paddingRight: 60,
     },
     downloadTitle: { fontWeight: 400, textTransform: "capitalize", },
     avatar: {

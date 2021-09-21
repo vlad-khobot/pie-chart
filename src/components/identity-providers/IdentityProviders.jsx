@@ -10,7 +10,6 @@ const useStyles = makeStyles(() => ({
         boxSizing: "border-box",
         backgroundColor: "white",
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        border: "1px solid white",
     },
     header: {
         display: "flex",
@@ -43,14 +42,14 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export default function IdentityProviders({ providerName}) {
+export default function IdentityProviders({handleClose}) {
 
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
 
-            <div className={classes.header}>Identity Providers <CloseIcon/></div>
+            <div className={classes.header}>Identity Providers <CloseIcon onClick={handleClose}/></div>
 
             <div className={classes.providersBlock}>
 

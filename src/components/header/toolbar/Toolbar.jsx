@@ -9,6 +9,7 @@ import Pagination from './pagination/Pagination';
 import ToolbarButton from './buttons/ToolbarButton';
 import { ReactComponent as IDPicon } from "./icons/idp.svg"
 import InviteUser from '../../services-components/iam/invite-user/InviteUser';
+import IdentityProviders from '../../identity-providers/IdentityProviders';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     dialogWindow:{
         "& .MuiDialog-paperWidthSm": {
             maxWidth: "none",
+        },
+        "& .MuiBackdrop-root": {
+            backgroundColor: "rgba(76,79,86, 0.5)",
         }
     }
 }));
@@ -34,15 +38,27 @@ export default function Toolbar() {
         setFilters(value);
     }, []);
 
-    //modal window
-    const [open, setOpen] = React.useState(false);
+    //invite window
+    const [inviteOpen, setOpenInvite] = React.useState(false);
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const handleClickOpenInvite = () => {
+        setOpenInvite(true);
     };
 
-    const handleClose = () => {
-        setOpen(false);
+    const handleCloseInvite = () => {
+        setOpenInvite(false);
+    };
+
+    //IDP window
+
+    const [providersOpen, setProvidersOpen] = React.useState(false);
+
+    const handleClickOpenIDP = () => {
+        setProvidersOpen(true);
+    };
+
+    const handleCloseIDP = () => {
+        setProvidersOpen(false);
     };
 
     return (
@@ -52,11 +68,11 @@ export default function Toolbar() {
                 <Grid item>
                     <Grid container>
                         <MultiFilter filters={filters} onFilter={onFilter} />
-                        <ToolbarButton onClick={handleClickOpen}>
+                        <ToolbarButton onClick={handleClickOpenInvite}>
                             <AddIcon />
                             Invite User
                         </ToolbarButton>
-                        <ToolbarButton>
+                        <ToolbarButton onClick={handleClickOpenIDP}>
                             <IDPicon style={{ marginRight: 3 }} />
                             IDP
                         </ToolbarButton>
@@ -77,8 +93,12 @@ export default function Toolbar() {
                 </Grid>
 
             </Grid>
-            <Dialog className={classes.dialogWindow} open={open} onClose={handleClose}>
-                <InviteUser handleClose={handleClose}/>
+
+            <Dialog className={classes.dialogWindow} open={inviteOpen} onClose={handleCloseInvite}>
+                <InviteUser handleClose={handleCloseInvite}/>
+            </Dialog>
+            <Dialog className={classes.dialogWindow} open={providersOpen} onClose={handleCloseIDP}>
+                <IdentityProviders handleClose={handleCloseIDP}/>
             </Dialog>
         </>
     );

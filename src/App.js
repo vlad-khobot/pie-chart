@@ -7,7 +7,6 @@ import DataTabs from './components/header/data-tabs/DataTabs';
 import dashboardTitles from './data/dashBoardTitle.json';
 import Zcenter from './components/z-center/Zcenter';
 import IAMProfileInfo from './components/services-components/iam/IAMProfileInfo';
-import IdentityProviders from './components/identity-providers/IdentityProviders';
 
 function App() {
   const dashboards = Object.keys(dashboardTitles.master);
@@ -22,7 +21,6 @@ function App() {
       </div>
       <IAMProfileInfo/>
       <Zcenter/>
-      <IdentityProviders/>
 
       {/* {dashboards.map(dashboard => (
         <Box m={1} key={dashboard}>

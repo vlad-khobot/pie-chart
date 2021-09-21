@@ -11,7 +11,6 @@ const useStyles = makeStyles(() => ({
         boxSizing: "border-box",
         backgroundColor: "white",
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        border: "1px solid white",
         fontFamily: "Lato",
         fontSize: 16,
         width: 800,
