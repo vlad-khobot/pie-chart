@@ -8,7 +8,6 @@ import dashboardTitles from './data/dashBoardTitle.json';
 import Zcenter from './components/z-center/Zcenter';
 import IAMProfileInfo from './components/services-components/iam/IAMProfileInfo';
 import IdentityProviders from './components/identity-providers/IdentityProviders';
-import InviteUser from './components/services-components/iam/invite-user/InviteUser';
 
 function App() {
   const dashboards = Object.keys(dashboardTitles.master);
@@ -24,7 +23,6 @@ function App() {
       <IAMProfileInfo/>
       <Zcenter/>
       <IdentityProviders/>
-      <InviteUser/>
 
       {/* {dashboards.map(dashboard => (
         <Box m={1} key={dashboard}>

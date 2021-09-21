@@ -25,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ToolbarButton({children}) {
+export default function ToolbarButton({children, ...props}) {
 
     const classes = useStyles();
 
     return (
-        <button className={classes.customButton}>
+        <button {...props} className={classes.customButton}>
             {children}
         </button>
     )

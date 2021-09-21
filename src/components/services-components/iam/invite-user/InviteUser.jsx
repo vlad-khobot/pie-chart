@@ -6,7 +6,7 @@ import MyButton from '../../../common/UI/MyButton';
 
 const useStyles = makeStyles(() => ({
     root: {
-        display: "inline-flex",
+        display: "flex",
         flexDirection: "column",
         boxSizing: "border-box",
         backgroundColor: "white",
@@ -76,13 +76,16 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function InviteUser() {
+export default function InviteUser({handleClose}) {
 
     const classes = useStyles();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    console.log(errors);
+    const onSubmit = data => {
+        console.log(data);
+        handleClose();
+    };
+    //console.log(errors);
 
     const [showOtherMailForm, setOtherMailForm] = useState(false);
 
@@ -94,7 +97,7 @@ export default function InviteUser() {
 
         <div className={classes.root}>
 
-            <div className={classes.header}>Invite User <CloseIcon /></div>
+            <div className={classes.header}>Invite User <CloseIcon onClick={handleClose}/></div>
 
 
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -135,7 +138,7 @@ export default function InviteUser() {
                 </div>
 
                 <div className={classes.buttonBlock}>
-                    <MyButton buttonStyle="disabled">Cancel</MyButton>
+                    <MyButton onClick={handleClose} buttonStyle="disabled">Cancel</MyButton>
                     <MyButton type="submit">Send</MyButton>
                 </div>
             </form>
