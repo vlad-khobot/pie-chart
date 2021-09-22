@@ -11,7 +11,6 @@ const useStyles = makeStyles(() => ({
         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         fontFamily: "Lato",
         fontSize: 16,
-        minWidth: 800,
     },
     header: {
         display: "flex",

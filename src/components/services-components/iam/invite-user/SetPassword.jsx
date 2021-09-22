@@ -109,7 +109,6 @@ export default function SetPassword({ handleClose }) {
     });
     setValuesConfirm({
         ...valuesConfirm,
-            showPassword: !valuesConfirm.showPassword,
         });
     };
 
@@ -174,7 +173,7 @@ export default function SetPassword({ handleClose }) {
 
                 <div className={classes.buttonBlock}>
                     <MyButton onClick={handleClose} buttonStyle="disabled">Cancel</MyButton>
-                    <MyButton type="submit">Send</MyButton>
+                    <MyButton type="submit" disabled={values.password !== valuesConfirm.password}>Send</MyButton>
                 </div>
             </form>
 

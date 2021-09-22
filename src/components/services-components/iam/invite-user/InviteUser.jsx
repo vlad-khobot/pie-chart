@@ -38,6 +38,7 @@ const useStyles = makeStyles(() => ({
         fontSize: 14,
         fontWeight: "bold",
         alignSelf: "flex-end",
+        marginTop: 4,
         marginBottom: 3,
         cursor: 'pointer',
     },
