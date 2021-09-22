@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core';
-import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import MyButton from '../../../common/UI/MyButton';
-import { ErrorMessage } from '@hookform/error-message';
+import * as yup from "yup";
+import { Form, Formik } from 'formik';
 
 const useStyles = makeStyles(() => ({
     paddingTop: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
                 boxShadow: '0 0 1pt 1pt cornflowerblue',
             }
         },
-        "& > label": {fontSize: 14, marginBottom: 8 },
+        "& > label": { fontSize: 14, marginBottom: 8 },
     },
     anotherMail: {
         color: "#1E96FC",
@@ -52,19 +52,18 @@ const useStyles = makeStyles(() => ({
             marginLeft: 13,
             "&:last-child": { padding: "0 47px" }
         },
-    }, required: { color: "red" }
+    }, required: { color: "red", fontSize: 12 }
 }));
 
 export default function InviteUser({ handleClose }) {
 
     const classes = useStyles();
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => {
-        console.log(data);
-        handleClose();
-    };
-    //console.log("erssssrors", errors);
+    const validation = yup.object().shape({
+        fullname: yup.string().typeError("only string").required("required field"),
+        email: yup.string().email("enter email").required("required field"),
+        otherMail: yup.string().email("enter email"),
+    });
 
     const [showOtherMailForm, setOtherMailForm] = useState(false);
 
@@ -73,53 +72,73 @@ export default function InviteUser({ handleClose }) {
     }
 
     return (
+        <Formik
+            initialValues={{
+                fullname: "",
+                email: "",
+                role: "",
+                jobTitle: "",
+                otherMail: "",
+                organization: "",
+            }}
+            validateOnBlur
+            onSubmit={(values) => {
+                console.log(values);
+                handleClose();
+            }}
+            validationSchema={validation}
+        >
+            {({ values, errors, touched, handleChange, handleBlur, isValid, dirty }) => (
 
-            <form className={classes.paddingTop} onSubmit={handleSubmit(onSubmit)}>
+                <Form className={classes.paddingTop} >
 
-                <div className={classes.formPart}>
+                    <div className={classes.formPart}>
 
-                    <label htmlFor="name"><span className={classes.required}>*</span>Full Name</label>
-                    <ErrorMessage errors={errors} name="fullName" render={() => <p style={{ color: "red", fontSize: 14 }}>enter your full name</p>} />
-                    <input type="text" id="name" placeholder="Full Name" {...register("fullName", { required: true, pattern: /[A-Za-zА-Яа-яЁё \s]{2}/i })} />
+                        <label htmlFor="fullname"><span className={classes.required}>*</span>Full Name</label>
+                        {touched.fullname && errors.fullname && <p className={classes.required}>{errors.fullname}</p>}
+                        <input value={values.fullname} onChange={handleChange} onBlur={handleBlur} type="text" name="fullname" placeholder="Full Name" />
 
-                    <label htmlFor="email"><span className={classes.required}>*</span>Email address</label>
-                    <ErrorMessage errors={errors} name="emailAddress" render={() => <p style={{ color: "red", fontSize: 14 }}>enter your email</p>} />
-                    <input type="email" id="email" placeholder="Email address" {...register("emailAddress", { required: true, pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g })} />
+                        <label htmlFor="email"><span className={classes.required}>*</span>Email address</label>
+                        {touched.email && errors.email && <p className={classes.required}>{errors.email}</p>}
+                        <input value={values.email} onChange={handleChange} onBlur={handleBlur} type="email" name="email" placeholder="Email address" />
 
-                </div>
+                    </div>
 
-                <div className={classes.formPart}>
-                    <label htmlFor="role">Role</label>
-                    <input type="text" id="role" placeholder="Role" {...register("Role", {})} />
+                    <div className={classes.formPart}>
+                        <label htmlFor="role">Role</label>
+                        <input value={values.role} onChange={handleChange} type="text" name="role" placeholder="Role" />
 
-                    <label htmlFor="organization">Organization</label>
+                        <label htmlFor="organization">Organization</label>
 
-                    <select id="organization" {...register("Organization", {})}>
-                        <option value=""></option>
-                        <option value="Org 1">Org 1</option>
-                        <option value="Org 2">Org 2</option>
-                        <option value="Org 3">Org 3</option>
-                    </select>
+                        <select value={values.organization} onChange={handleChange} name="organization">
+                            <option value=""></option>
+                            <option value="Org 1">Org 1</option>
+                            <option value="Org 2">Org 2</option>
+                            <option value="Org 3">Org 3</option>
+                        </select>
 
-                    <label htmlFor="job_title">Job Title</label>
-                    <input type="text" id="job_title" placeholder="Job Title" {...register("Job Title", {})} />
+                        <label htmlFor="jobTitle">Job Title</label>
+                        <input value={values.jobTitle} onChange={handleChange} type="text" name="jobTitle" placeholder="Job Title" />
 
-                    {showOtherMailForm ?
-                        <>
-                            <label htmlFor="otherMail">Another email address</label>
-                            <input type="email" id="otherMail" placeholder="Email address" {...register("other email")} />
-                        </>
-                        :
-                        <div onClick={showMailForm} className={classes.anotherMail}>
-                            + Add another email address
-                        </div>
-                    }
-                </div>
+                        {showOtherMailForm ?
+                            <>
+                                <label htmlFor="otherMail">Another email address</label>
+                                {touched.otherMail && errors.otherMail && <p className={classes.required}>{errors.otherMail}</p>}
+                                <input value={values.otherMail} onChange={handleChange} onBlur={handleBlur} type="email" name="otherMail" placeholder="Email address" />
+                            </>
+                            :
+                            <div onClick={showMailForm} className={classes.anotherMail}>
+                                + Add another email address
+                            </div>
+                        }
+                    </div>
 
-                <div className={classes.buttonBlock}>
-                    <MyButton onClick={handleClose} buttonStyle="disabled">Cancel</MyButton>
-                    <MyButton type="submit">Send</MyButton>
-                </div>
-            </form>
+                    <div className={classes.buttonBlock}>
+                        <MyButton onClick={handleClose} buttonStyle="disabled">Cancel</MyButton>
+                        <MyButton type="submit" disabled={!isValid && dirty}>Send</MyButton>
+                    </div>
+                </Form>
+            )}
+        </Formik>
     );
 }

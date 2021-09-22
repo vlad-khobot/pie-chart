@@ -128,9 +128,7 @@ export default function PasswordFormik({ handleClose }) {
 
                     <div className={classes.buttonBlock}>
                         <MyButton buttonStyle="disabled" onClick={handleClose}>Cancel</MyButton>
-                        <MyButton type="submit"
-                            disabled={!isValid && dirty}
-                            onClick={handleSubmit}>Send</MyButton>
+                        <MyButton type="submit" disabled={!isValid && dirty}>Send    </MyButton>
                     </div>
                 </Form>
             )}
