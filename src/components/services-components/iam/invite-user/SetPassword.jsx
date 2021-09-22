@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
         margin: "49px 122px 72px 104px",
         backgroundColor: "#EBEBEB",
         borderRadius: "29px",
+        fontSize: 14, fontFamily: "lato",
         "& .MuiInput-root": {
             height: 40,
             width: 519,
@@ -27,7 +28,7 @@ const useStyles = makeStyles(() => ({
                 boxShadow: '0 0 1pt 1pt cornflowerblue',
             }
         },
-        "& > label": { marginBottom: 8, fontSize: 14 },
+        "& > label": { marginBottom: 8,},
     },
     buttonBlock: {
         display: "flex",
@@ -40,7 +41,7 @@ const useStyles = makeStyles(() => ({
             display: "flex", justifyContent: "center",
             "&:last-child": { padding: "0 47px" }
         },
-    }, required: { color: "red" }
+    }, required: { color: "red",  margin: 0}
 }));
 
 export default function PasswordFormik({ handleClose }) {
@@ -87,6 +88,7 @@ export default function PasswordFormik({ handleClose }) {
                         <Input disableUnderline
                             type={showPassword ? 'text' : 'password'}
                             name="password"
+                            autoComplete="on"
                             onChange={handleChange} onBlur={handleBlur}
                             value={values.password}
                             placeholder="Type"
@@ -109,6 +111,7 @@ export default function PasswordFormik({ handleClose }) {
                         <Input disableUnderline
                             type={showPassword ? 'text' : 'password'}
                             name="confirmPassword"
+                            autoComplete="on"
                             onChange={handleChange} onBlur={handleBlur}
                             value={values.confirmPassword}
                             placeholder="Type"

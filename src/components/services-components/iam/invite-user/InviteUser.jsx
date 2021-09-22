@@ -1,8 +1,9 @@
-import { makeStyles } from '@material-ui/core';
+import {makeStyles, Select } from '@material-ui/core';
 import React, { useState } from 'react';
 import MyButton from '../../../common/UI/MyButton';
 import * as yup from "yup";
 import { Form, Formik } from 'formik';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(() => ({
     paddingTop: {
@@ -17,7 +18,8 @@ const useStyles = makeStyles(() => ({
         marginBottom: 16,
         backgroundColor: "#EBEBEB",
         borderRadius: "29px",
-        "& > input, select": {
+        fontSize: 14, fontFamily: "lato",
+        "& > input, .MuiInput-root": {
             height: 40,
             width: 519,
             boxSizing: "border-box",
@@ -29,9 +31,10 @@ const useStyles = makeStyles(() => ({
             "&:focus": {
                 outline: 'none',
                 boxShadow: '0 0 1pt 1pt cornflowerblue',
-            }
+            },
         },
-        "& > label": { fontSize: 14, marginBottom: 8 },
+        "& .MuiSvgIcon-root": {right: '8px'},
+        "& > label": {marginBottom: 8 },
     },
     anotherMail: {
         color: "#1E96FC",
@@ -52,7 +55,7 @@ const useStyles = makeStyles(() => ({
             marginLeft: 13,
             "&:last-child": { padding: "0 47px" }
         },
-    }, required: { color: "red", fontSize: 12 }
+    }, required: { color: "red",  margin: 0}
 }));
 
 export default function InviteUser({ handleClose }) {
@@ -60,7 +63,7 @@ export default function InviteUser({ handleClose }) {
     const classes = useStyles();
 
     const validation = yup.object().shape({
-        fullname: yup.string().typeError("only string").required("required field"),
+        fullname: yup.string().typeError("only string").matches(/^[A-Za-z ]*$/, 'please enter valid name').required("required field"),
         email: yup.string().email("enter email").required("required field"),
         otherMail: yup.string().email("enter email"),
     });
@@ -110,12 +113,14 @@ export default function InviteUser({ handleClose }) {
 
                         <label htmlFor="organization">Organization</label>
 
-                        <select value={values.organization} onChange={handleChange} name="organization">
+                        <Select disableUnderline value={values.organization} onChange={handleChange} name="organization"
+                        IconComponent={ExpandMoreIcon}
+                        >
                             <option value=""></option>
                             <option value="Org 1">Org 1</option>
                             <option value="Org 2">Org 2</option>
                             <option value="Org 3">Org 3</option>
-                        </select>
+                        </Select>
 
                         <label htmlFor="jobTitle">Job Title</label>
                         <input value={values.jobTitle} onChange={handleChange} type="text" name="jobTitle" placeholder="Job Title" />
