@@ -7,7 +7,6 @@ import DataTabs from './components/header/data-tabs/DataTabs';
 import dashboardTitles from './data/dashBoardTitle.json';
 import Zcenter from './components/z-center/Zcenter';
 import IAMProfileInfo from './components/services-components/iam/IAMProfileInfo';
-import SetPassword from './components/services-components/iam/invite-user/SetPassword';
 
 function App() {
   const dashboards = Object.keys(dashboardTitles.master);
@@ -15,7 +14,6 @@ function App() {
   return (
     <>
       <TopBar />
-      <SetPassword/>
       <div className="navigation-container">
         <DataTabs dashboards={dashboards} />
         <DashBoard dashboard={dashboards[0]} user={'master'} />

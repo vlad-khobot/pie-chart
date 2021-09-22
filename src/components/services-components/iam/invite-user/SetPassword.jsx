@@ -1,43 +1,16 @@
-import { IconButton, Input, InputAdornment, makeStyles } from '@material-ui/core';
-import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
+import { Form, Formik } from 'formik';
+import { IconButton, Input, InputAdornment, makeStyles } from '@material-ui/core';
+import * as yup from "yup";
 import MyButton from '../../../common/UI/MyButton';
-import {ShowPassword, HidePassword} from "./icons"
+import { HidePassword, ShowPassword } from './icons';
 
 const useStyles = makeStyles(() => ({
-    root: {
-        display: "flex",
-        flexDirection: "column",
-        boxSizing: "border-box",
-        backgroundColor: "white",
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        fontFamily: "Lato",
-        fontSize: 16,
-        width: 800,
-        "& form": {
-            display: "flex",
-            flexDirection: "column",
-            paddingTop: 33,
-        }
-    },
-    header: {
-        display: "flex",
-        alignItems: "center",
-        position: "relative",
-        height: 54,
-        paddingLeft: 21,
-        color: "white",
-        fontSize: 24,
-        lineHeight: "29px",
-        backgroundColor: "#111828",
-        "& > svg": { position: "absolute", right: 9, top: 8, }
-    },
     formPart: {
         display: 'flex',
-        alignSelf: "center",
         flexDirection: "column",
-        padding: "16px 30px 7px 25px",
-        marginBottom: 16,
+        padding: "27px 30px 7px 25px",
+        margin: "49px 122px 72px 104px",
         backgroundColor: "#EBEBEB",
         borderRadius: "29px",
         "& .MuiInput-root": {
@@ -54,129 +27,113 @@ const useStyles = makeStyles(() => ({
                 boxShadow: '0 0 1pt 1pt cornflowerblue',
             }
         },
-        "& > label": { marginBottom: 8 },
+        "& > label": { marginBottom: 8, fontSize: 14 },
     },
     buttonBlock: {
         display: "flex",
-        alignSelf: "flex-end",
-        margin: "16px 30px ",
+        justifyContent: "flex-end",
+        marginRight: 30, marginBottom: 20,
         "& > button": {
             marginLeft: 13,
+            height: 36,
+            borderRadius: 20,
+            display: "flex", justifyContent: "center",
             "&:last-child": { padding: "0 47px" }
         },
     }, required: { color: "red" }
 }));
 
-export default function SetPassword({ handleClose }) {
+export default function PasswordFormik({ handleClose }) {
 
     const classes = useStyles();
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => {
-        console.log(data);
-    };
-    //console.log("errors", errors);
-
-    //input password
-    const [values, setValues] = useState({
-        password: '',
-        showPassword: false,
+    const validation = yup.object().shape({
+        password: yup.string().typeError("Only string").required("required field"),
+        confirmPassword: yup.string()
+            .oneOf([yup.ref("password")], "passwords must match")
+            .required("required field"),
     });
 
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-    
-    
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-    
-    //input confirm password
-    
-    const [valuesConfirm, setValuesConfirm] = useState({
-        password: '',
-    });
-    
-    const handleChangeConfirm = (prop) => (event) => {
-        setValuesConfirm({ ...values, [prop]: event.target.value });
-    };
-    
-    const handleClickShowPassword = () => {
-    setValues({
-        ...values,
-        showPassword: !values.showPassword,
-    });
-    setValuesConfirm({
-        ...valuesConfirm,
-        });
-    };
+    const [showPassword, setShowPassword] = useState(false);
+
+    function switchShowPassword() {
+        setShowPassword(!showPassword);
+    }
+
+
 
     return (
+        <Formik
+            initialValues={{
+                password: "",
+                confirmPassword: "",
+            }}
+            validateOnBlur
+            onSubmit={(values) => {
+                console.log(values);
+                handleClose();
+            }}
+            validationSchema={validation}
+        >
 
-        <div className={classes.root}>
+            {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
+                <Form onSubmit={handleSubmit}>
+                    <div className={classes.formPart}>
 
-            <div className={classes.header}>Set Password </div>
+                        <label htmlFor="password"><span className={classes.required}>*</span>Set Password</label>
 
+                        {touched.password && errors.password && <p className={classes.required}>{errors.password}</p>}
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-
-                <div className={classes.formPart}>
-
-                    <label htmlFor="password"><span className={classes.required}>*</span>Set Password</label>
-                        <Input
-                            disableUnderline
-                            autoComplete="new-password"
-                            id="password"
-                            type={values.showPassword ? 'text' : 'password'}
+                        <Input disableUnderline
+                            type={showPassword ? 'text' : 'password'}
+                            name="password"
+                            onChange={handleChange} onBlur={handleBlur}
                             value={values.password}
                             placeholder="Type"
-                            onChange={handleChange('password')}
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
                                         aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
+                                        onClick={switchShowPassword}
                                     >
-                                        {values.showPassword ? <ShowPassword /> : <HidePassword />}
+                                        {showPassword ? <ShowPassword /> : <HidePassword />}
                                     </IconButton>
                                 </InputAdornment>
                             }
-                            
                         />
-                        <label htmlFor="confirm-password"><span className={classes.required}>*</span>Retype Password</label>
-                        <Input
-                            disableUnderline
-                            autoComplete="new-password"
-                            id="confirm-password"
-                            type={values.showPassword ? 'text' : 'password'}
-                            value={valuesConfirm.password}
+
+                        <label htmlFor="confirmPassword"><span className={classes.required}>*</span>Retype Password</label>
+
+                        {touched.confirmPassword && errors.confirmPassword && <p className={classes.required}>{errors.confirmPassword}</p>}
+
+                        <Input disableUnderline
+                            type={showPassword ? 'text' : 'password'}
+                            name="confirmPassword"
+                            onChange={handleChange} onBlur={handleBlur}
+                            value={values.confirmPassword}
                             placeholder="Type"
-                            onChange={handleChangeConfirm('password')}
                             endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
                                         aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
+                                        onClick={switchShowPassword}
                                     >
-                                        {values.showPassword ? <ShowPassword /> : <HidePassword />}
+                                        {showPassword ? <ShowPassword /> : <HidePassword />}
                                     </IconButton>
                                 </InputAdornment>
                             }
                         />
 
+                    </div>
 
-
-                </div>
-
-                <div className={classes.buttonBlock}>
-                    <MyButton onClick={handleClose} buttonStyle="disabled">Cancel</MyButton>
-                    <MyButton type="submit" disabled={values.password !== valuesConfirm.password}>Send</MyButton>
-                </div>
-            </form>
-
-        </div>
+                    <div className={classes.buttonBlock}>
+                        <MyButton buttonStyle="disabled" onClick={handleClose}>Cancel</MyButton>
+                        <MyButton type="submit"
+                            disabled={!isValid && dirty}
+                            onClick={handleSubmit}>Send</MyButton>
+                    </div>
+                </Form>
+            )}
+        </Formik>
     );
 }

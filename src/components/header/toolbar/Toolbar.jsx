@@ -11,6 +11,7 @@ import { ReactComponent as IDPicon } from "./icons/idp.svg"
 import InviteUser from '../../services-components/iam/invite-user/InviteUser';
 import IdentityProviders from '../../identity-providers/IdentityProviders';
 import ModalWindow from '../../common/UI/ModalWindow';
+import SetPassword from '../../services-components/iam/invite-user/SetPassword';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +55,18 @@ export default function Toolbar() {
         setProvidersOpen(false);
     };
 
+    //set password window
+
+    const [passwordOpen, setPasswordOpen] = React.useState(false);
+
+    const handleClickOpenPassword = () => {
+        setPasswordOpen(true);
+    };
+
+    const handleClosePassword = () => {
+        setPasswordOpen(false);
+    };
+
     return (
         <>
             <InventoryBar />
@@ -68,6 +81,9 @@ export default function Toolbar() {
                         <ToolbarButton onClick={handleClickOpenIDP}>
                             <IDPicon style={{ marginRight: 3 }} />
                             IDP
+                        </ToolbarButton>
+                        <ToolbarButton onClick={handleClickOpenPassword}>
+                            Set password
                         </ToolbarButton>
                     </Grid>
                 </Grid>
@@ -88,10 +104,15 @@ export default function Toolbar() {
             </Grid>
 
             <ModalWindow open={inviteOpen} onClose={handleCloseInvite} title="Invite User">
-                <InviteUser handleClose={handleCloseInvite}/>
+                <InviteUser handleClose={handleCloseInvite} />
             </ModalWindow>
+
             <ModalWindow open={providersOpen} onClose={handleCloseIDP} title="Identity Providers">
-                <IdentityProviders handleClose={handleCloseIDP}/>
+                <IdentityProviders handleClose={handleCloseIDP} />
+            </ModalWindow>
+
+            <ModalWindow open={passwordOpen} onClose={handleClosePassword} title="Set Password">
+                <SetPassword handleClose={handleClosePassword}/>
             </ModalWindow>
         </>
     );
